@@ -1,0 +1,161 @@
+|finalb
+SW[0] => final:dut.data[0]
+SW[1] => final:dut.data[1]
+SW[2] => final:dut.data[2]
+SW[3] => final:dut.data[3]
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => final:dut.sIn
+HEX0[0] << final:dut.outputTo7Seg[0]
+HEX0[1] << final:dut.outputTo7Seg[1]
+HEX0[2] << final:dut.outputTo7Seg[2]
+HEX0[3] << final:dut.outputTo7Seg[3]
+HEX0[4] << final:dut.outputTo7Seg[4]
+HEX0[5] << final:dut.outputTo7Seg[5]
+HEX0[6] << final:dut.outputTo7Seg[6]
+LEDR[0] << <GND>
+LEDR[1] << <GND>
+LEDR[2] << <GND>
+LEDR[3] << <GND>
+LEDR[4] << <GND>
+LEDR[5] << <GND>
+LEDR[6] << <GND>
+LEDR[7] << <GND>
+LEDR[8] << <GND>
+LEDR[9] << final:dut.isFib
+
+
+|finalb|final:dut
+sIn => MUX:getOutput.s
+data[0] => FibChk:fibonacciCheck.fibToCheck[0]
+data[0] => nextFib:fibonacciNext.findNextInput[0]
+data[0] => MUX:getOutput.x[0]
+data[1] => FibChk:fibonacciCheck.fibToCheck[1]
+data[1] => nextFib:fibonacciNext.findNextInput[1]
+data[1] => MUX:getOutput.x[1]
+data[2] => FibChk:fibonacciCheck.fibToCheck[2]
+data[2] => nextFib:fibonacciNext.findNextInput[2]
+data[2] => MUX:getOutput.x[2]
+data[3] => FibChk:fibonacciCheck.fibToCheck[3]
+data[3] => nextFib:fibonacciNext.findNextInput[3]
+data[3] => MUX:getOutput.x[3]
+outputTo7Seg[0] <= sevenSegOutput:display.sevenSegOut[0]
+outputTo7Seg[1] <= sevenSegOutput:display.sevenSegOut[1]
+outputTo7Seg[2] <= sevenSegOutput:display.sevenSegOut[2]
+outputTo7Seg[3] <= sevenSegOutput:display.sevenSegOut[3]
+outputTo7Seg[4] <= sevenSegOutput:display.sevenSegOut[4]
+outputTo7Seg[5] <= sevenSegOutput:display.sevenSegOut[5]
+outputTo7Seg[6] <= sevenSegOutput:display.sevenSegOut[6]
+isFib <= FibChk:fibonacciCheck.valid
+
+
+|finalb|final:dut|FibChk:fibonacciCheck
+fibToCheck[0] => Mux0.IN19
+fibToCheck[1] => Mux0.IN18
+fibToCheck[2] => Mux0.IN17
+fibToCheck[3] => Mux0.IN16
+valid <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|finalb|final:dut|nextFib:fibonacciNext
+findNextInput[0] => Mux0.IN19
+findNextInput[0] => Mux1.IN19
+findNextInput[0] => Mux2.IN19
+findNextInput[0] => Mux3.IN19
+findNextInput[0] => Mux4.IN10
+findNextInput[1] => Mux0.IN18
+findNextInput[1] => Mux1.IN18
+findNextInput[1] => Mux2.IN18
+findNextInput[1] => Mux3.IN18
+findNextInput[1] => Mux4.IN9
+findNextInput[2] => Mux0.IN17
+findNextInput[2] => Mux1.IN17
+findNextInput[2] => Mux2.IN17
+findNextInput[2] => Mux3.IN17
+findNextInput[3] => Mux0.IN16
+findNextInput[3] => Mux1.IN16
+findNextInput[3] => Mux2.IN16
+findNextInput[3] => Mux3.IN16
+findNextInput[3] => Mux4.IN8
+findNextOutput[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+findNextOutput[1] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+findNextOutput[2] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+findNextOutput[3] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+findNextOutput[4] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|finalb|final:dut|MUX:getOutput
+s => Selector0.IN3
+s => Selector1.IN3
+s => Selector2.IN3
+s => Selector3.IN3
+s => Selector4.IN3
+s => Selector0.IN0
+s => Selector1.IN0
+s => Selector2.IN0
+s => Selector3.IN0
+s => Selector4.IN0
+x[0] => Selector0.IN4
+x[1] => Selector1.IN4
+x[2] => Selector2.IN4
+x[3] => Selector3.IN4
+x[4] => Selector4.IN4
+y[0] => Selector0.IN5
+y[1] => Selector1.IN5
+y[2] => Selector2.IN5
+y[3] => Selector3.IN5
+y[4] => Selector4.IN5
+m[0] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+m[1] <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
+m[2] <= Selector2.DB_MAX_OUTPUT_PORT_TYPE
+m[3] <= Selector3.DB_MAX_OUTPUT_PORT_TYPE
+m[4] <= Selector4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|finalb|final:dut|sevenSegOutput:display
+sevenSegIn[0] => Mux1.IN36
+sevenSegIn[0] => Mux2.IN36
+sevenSegIn[0] => Mux3.IN36
+sevenSegIn[0] => Mux4.IN36
+sevenSegIn[0] => Mux5.IN36
+sevenSegIn[0] => Mux6.IN36
+sevenSegIn[1] => Mux0.IN19
+sevenSegIn[1] => Mux1.IN35
+sevenSegIn[1] => Mux2.IN35
+sevenSegIn[1] => Mux3.IN35
+sevenSegIn[1] => Mux4.IN35
+sevenSegIn[1] => Mux5.IN35
+sevenSegIn[1] => Mux6.IN35
+sevenSegIn[2] => Mux0.IN18
+sevenSegIn[2] => Mux1.IN34
+sevenSegIn[2] => Mux2.IN34
+sevenSegIn[2] => Mux3.IN34
+sevenSegIn[2] => Mux4.IN34
+sevenSegIn[2] => Mux5.IN34
+sevenSegIn[2] => Mux6.IN34
+sevenSegIn[3] => Mux0.IN17
+sevenSegIn[3] => Mux1.IN33
+sevenSegIn[3] => Mux2.IN33
+sevenSegIn[3] => Mux3.IN33
+sevenSegIn[3] => Mux4.IN33
+sevenSegIn[3] => Mux5.IN33
+sevenSegIn[3] => Mux6.IN33
+sevenSegIn[4] => Mux0.IN16
+sevenSegIn[4] => Mux1.IN32
+sevenSegIn[4] => Mux2.IN32
+sevenSegIn[4] => Mux3.IN32
+sevenSegIn[4] => Mux4.IN32
+sevenSegIn[4] => Mux5.IN32
+sevenSegIn[4] => Mux6.IN32
+sevenSegOut[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+sevenSegOut[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+sevenSegOut[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sevenSegOut[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+sevenSegOut[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+sevenSegOut[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sevenSegOut[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

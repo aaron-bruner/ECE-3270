@@ -1,0 +1,93 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/simulation/modelsim
+Esevensegoutput
+Z1 w1646019061
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/sevenSegOutput.vhd
+Z5 FE:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/sevenSegOutput.vhd
+l0
+L8 1
+VH]Qk^EjCflfc?oBBmfUA93
+!s100 8fa4Y8_0egL>5al:hd5VX2
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1646022183
+!i10b 1
+Z8 !s108 1646022182.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/sevenSegOutput.vhd|
+Z10 !s107 E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/sevenSegOutput.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Amain
+R2
+R3
+DEx4 work 14 sevensegoutput 0 22 H]Qk^EjCflfc?oBBmfUA93
+!i122 0
+l14
+L13 11
+VkUQMldSdM:eEE]`dYZzYm1
+!s100 GH<2C=d2AfKMGeC7QGC2z2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Esevensegoutput_vhd_tst
+Z13 w1646022180
+R2
+R3
+!i122 1
+R0
+Z14 8E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/simulation/modelsim/sevenSegOutput.vht
+Z15 FE:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/simulation/modelsim/sevenSegOutput.vht
+l0
+L31 1
+VKKLU^`@65?6^i^?Ak8D;90
+!s100 `3bNI;I[jR`8fkz9NDAWX3
+R6
+31
+R7
+!i10b 1
+Z16 !s108 1646022183.000000
+Z17 !s90 -reportprogress|300|-93|-work|work|E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/simulation/modelsim/sevenSegOutput.vht|
+!s107 E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/simulation/modelsim/sevenSegOutput.vht|
+!i113 1
+R11
+R12
+Asevensegoutput_arch
+R2
+R3
+DEx4 work 22 sevensegoutput_vhd_tst 0 22 KKLU^`@65?6^i^?Ak8D;90
+!i122 1
+l44
+L33 67
+VGnU2do^kOnDQP`RDlB?KF1
+!s100 EK6YVKG7RJVH7F`94>lkF0
+R6
+31
+R7
+!i10b 1
+R16
+R17
+Z18 !s107 E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 1/simulation/modelsim/sevenSegOutput.vht|
+!i113 1
+R11
+R12

@@ -1,0 +1,78 @@
+-- Part Five - Lab 1 (Determine if Input is Fib, Display to 7-Segment)
+-- Aaron Bruner
+-- C16480080
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity p5 is
+	port( sIn 				: IN  STD_LOGIC;
+			data  			: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+			outputTo7Seg 	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			isFib 			: OUT STD_LOGIC);
+end p5;
+
+architecture struct of p5 is -- Signals are how we connect the different components in our lab. Reference L02-Slide14
+
+SIGNAL wire_bit_increase 	: STD_LOGIC_VECTOR(4 DOWNTO 0);
+SIGNAL wire_next_fib		 	: STD_LOGIC_VECTOR(4 DOWNTO 0);
+SIGNAL wire_select_fib_next: STD_LOGIC_VECTOR(4 DOWNTO 0);
+SIGNAL wire_select_fib_out	: STD_LOGIC_VECTOR(4 DOWNTO 0);
+
+COMPONENT p1
+PORT ( s : IN STD_LOGIC;
+		 x : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		 y : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		 m : OUT STD_LOGIC_VECTOR(4 DOWNTO 0));
+END COMPONENT;
+
+COMPONENT p2
+PORT ( valid : OUT STD_LOGIC;
+		 input  : IN  STD_LOGIC_VECTOR(3 DOWNTO 0));
+END COMPONENT;
+
+COMPONENT p3
+PORT ( findNextInput : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 findNextOutput: OUT STD_LOGIC_VECTOR(4 DOWNTO 0));
+END COMPONENT;
+
+COMPONENT p4
+PORT ( sevenSegIn : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		 sevenSegOut : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+END COMPONENT;
+
+COMPONENT p5_comp1
+PORT ( cur_fib_in : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 dest_bit_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0));
+END COMPONENT;
+
+
+
+BEGIN
+find_valid: p2
+PORT MAP ( input => data(3 DOWNTO 0),
+			  valid => isFib
+);
+
+find_next: p3
+PORT MAP ( findNextInput => data(3 DOWNTO 0),
+			  findNextOutput => wire_next_fib(4 DOWNTO 0)
+);
+
+increase_bit : p5_comp1
+PORT MAP ( cur_fib_in => data,
+			  dest_bit_out => wire_bit_increase
+);
+
+select_fib: p1
+PORT MAP ( s => sIn,
+			  x => wire_bit_increase,
+			  y => wire_next_fib,
+			  m => wire_select_fib_out
+);
+
+display: p4
+PORT MAP ( sevenSegIn => wire_select_fib_out,
+			  sevenSegOut => outputTo7Seg
+);
+end struct;

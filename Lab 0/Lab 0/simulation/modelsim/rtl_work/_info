@@ -1,0 +1,134 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/simulation/modelsim
+Eexample
+Z1 w1645725741
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example.vhd
+Z5 FE:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example.vhd
+l0
+L6 1
+Vca_zSg1dE>XC_e^Ie_EI90
+!s100 `iIRlb2OYJn>H=4[XD`9T0
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1645725961
+!i10b 1
+Z8 !s108 1645725961.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example.vhd|
+Z10 !s107 E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Amixed
+R2
+R3
+DEx4 work 7 example 0 22 ca_zSg1dE>XC_e^Ie_EI90
+!i122 0
+l14
+L12 15
+VJ>k4ZBQ>a2a;5gaJ3M?2M1
+!s100 fo@2<l6=G9]7jWI;LS:Y<0
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eexample_board
+Z13 w1645716462
+R2
+R3
+!i122 1
+R0
+Z14 8E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example_board.vhd
+Z15 FE:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example_board.vhd
+l0
+L3 1
+VM]VDeXWN2R?6SJ4nhI3VX0
+!s100 YZhLGDDkbRUzgZ[h_oQgb1
+R6
+31
+Z16 !s110 1645725962
+!i10b 1
+Z17 !s108 1645725962.000000
+Z18 !s90 -reportprogress|300|-93|-work|work|E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example_board.vhd|
+Z19 !s107 E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/example_board.vhd|
+!i113 1
+R11
+R12
+Astruct
+R2
+R3
+DEx4 work 13 example_board 0 22 M]VDeXWN2R?6SJ4nhI3VX0
+!i122 1
+l15
+L7 17
+VJ?g6d@[jY;Kc<^I1RGQMi2
+!s100 JIBKP@KQAU>ki9<zfF1KV1
+R6
+31
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 1
+R11
+R12
+Eexample_vhd_tst
+Z20 w1645716484
+R2
+R3
+!i122 2
+R0
+Z21 8E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/simulation/modelsim/example.vht
+Z22 FE:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/simulation/modelsim/example.vht
+l0
+L31 1
+VC?<[;SoMcUOiSWnhE;FE_2
+!s100 Fln>akTz8R@O^Q2BEY1]B1
+R6
+31
+R16
+!i10b 1
+R17
+Z23 !s90 -reportprogress|300|-93|-work|work|E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/simulation/modelsim/example.vht|
+!s107 E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/simulation/modelsim/example.vht|
+!i113 1
+R11
+R12
+Aexample_arch
+R2
+R3
+DEx4 work 15 example_vhd_tst 0 22 C?<[;SoMcUOiSWnhE;FE_2
+!i122 2
+l46
+L33 55
+V[R_aORc_86LG[IOEflWJM2
+!s100 SD^X_T<h1TZG6moYMgoGi2
+R6
+31
+R16
+!i10b 1
+R17
+R23
+Z24 !s107 E:/My Drive/Clemson CpE Course Work/3000 Courses/ECE 3270 - Digital Computer Design/Lab 0/Lab 0/simulation/modelsim/example.vht|
+!i113 1
+R11
+R12

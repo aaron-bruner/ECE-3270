@@ -1,0 +1,30 @@
+-- Part Two - Lab 1 (Determining Valid Fibonacci Number)
+-- Aaron Bruner
+-- C16480080
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity p2 is
+	port( input  : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);  -- We input 4-Bit binary number
+			valid : OUT STD_LOGIC);						  -- Logic 1 or 0 output if it is or is not a Fibonacci number
+end p2;
+
+architecture main of p2 is
+	begin
+		with input select					-- This is a very simple select statement. If the predetermined Fibonacci number is in our list
+												-- then we set the output to 1. Otherwise we set it to 0.
+			valid <= '1' when "0000", -- 0
+						 '1' when "0001", -- 1
+						 '1' when "0010", -- 2
+						 '1' when "0011", -- 3
+						 '1' when "0101", -- 5
+						 '1' when "1000", -- 8
+						 '1' when "1101", -- 13
+			'0' when others;
+end main;
+
+
+-- Notes:
+-- output logic high if the input bits are a valid Fibonacci number (0, 1, 2, 3, 5, 8, 13) logic low otherwise.
+

@@ -1,0 +1,23 @@
+|MooreFSM
+clk => state~8.DATAIN
+rst => state~10.DATAIN
+input[0] => Equal0.IN2
+input[0] => Equal1.IN2
+input[0] => Equal2.IN1
+input[0] => Equal3.IN1
+input[1] => Equal0.IN1
+input[1] => Equal1.IN1
+input[1] => Equal2.IN0
+input[1] => Equal3.IN2
+input[2] => Equal0.IN0
+input[2] => Equal1.IN0
+input[2] => Equal2.IN2
+input[2] => Equal3.IN0
+output[0] << output[0].DB_MAX_OUTPUT_PORT_TYPE
+output[1] << output[1].DB_MAX_OUTPUT_PORT_TYPE
+output2[0] << WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+output2[1] << WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+output2[2] << WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+output2[3] << output2[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

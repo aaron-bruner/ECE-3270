@@ -15,8 +15,8 @@ port(
     rst: IN std_logic;
 
     input: IN std_logic_vector(2 downto 0);		-- alt10k, alt25k, smooth
-    output: OUT std_logic_vector(1 downto 0);	-- no-electronics, seat-belt
-	 output2: OUT std_logic_vector(3 downto 0)	-- Sign Output
+    signDisplay: OUT std_logic_vector(1 downto 0);	-- no-electronics, seat-belt
+	 currentState: OUT std_logic_vector(3 downto 0)	-- Sign Output
 );
 
 END COMPONENT;
@@ -24,11 +24,11 @@ END COMPONENT;
 begin 
 mmmap : MooreFSM
 port map(
-	 clk => KEY(0),
-	 rst=>SW(3),
-	 input=>SW(2 downto 0),
-	 output=>LEDR(5 DOWNTO 4),
-	 output2=>LEDR(3 downto 0)
+	 clk		=>	KEY(0),
+	 rst		=>	SW(3),
+	 input	=>	SW(2 downto 0),
+	 signDisplay	=>	LEDR(5 DOWNTO 4),
+	 currentState	=>	LEDR(3 downto 0)
 );
 
 end struct;

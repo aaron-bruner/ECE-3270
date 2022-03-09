@@ -22,4 +22,4 @@ The purpose of this lab is to give hands-on experience working with FPGAs for ha
 The purpose of this exercise is to learn how to connect simple input and output devices to an FPGA chip and implement a circuit that uses these devices. Overall, the circuitry will display either the current Fibonacci number or the next. The input will be provided using a 4-Bit binary input through switches.
 
 ###### Lab 2
-The purpose of this lab is to implement a state machine that keeps track of the current signal status. The state machine will then need to have the libraries signals added to work with OpenCL.
+The purpose of this lab is to implement a state machine that keeps track of the current signal status. The plane controller will transistion from being on the ground to an altitude of 10k and then 25k. If the plane stays at 25k for 5 clock cycles then the passangers can remove their seatbelts. This is all displayed through a 

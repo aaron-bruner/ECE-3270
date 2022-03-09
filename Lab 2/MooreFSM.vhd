@@ -7,8 +7,8 @@ port(
     rst: IN STD_LOGIC;
 
     input: IN STD_LOGIC_VECTOR(2 downto 0);		-- alt10k, alt25k, smooth
-    output: OUT STD_LOGIC_VECTOR(1 downto 0);	-- no-electronics, seat-belt
-	 output2: OUT STD_LOGIC_VECTOR(3 downto 0)	-- Sign Output
+    signDisplay: OUT STD_LOGIC_VECTOR(1 downto 0);	-- no-electronics, seat-belt
+	 currentState: OUT STD_LOGIC_VECTOR(3 downto 0)	-- Sign signDisplay
 );
 END MooreFSM;
 
@@ -24,47 +24,55 @@ begin
 		elsif (RISING_EDGE(clk)) then
 			case state is
 				when gnd =>
-					if    	input = "000" then state <= gnd;					-- No takeoff yet
-						elsif input = "001" then state <= gnd;					-- No takeoff yet
-						elsif input = "100" then state <= alt10k; end if;	-- Ascending to 10k
+					if    	input = "000" then state <= gnd;			-- No takeoff yet
+						elsif input = "001" then state <= gnd;			-- No takeoff yet
+						elsif input = "100" then state <= alt10k; 	-- Ascending to 10k
+						else state <= gnd; 	end if;
 				when alt10k =>
-					if    	input = "100" then state <= gnd;				  	-- Decending to ground
-						elsif input = "010" then state <= alt25k;			  	-- Acending to 25k
-						elsif input = "001" then state <= alt10k; end if; 	-- Staying at 10K -> SMOOTH
+					if    	input = "100" then state <= gnd;			-- Decending to ground
+						elsif input = "010" then state <= alt25k;		-- Acending to 25k
+						elsif input = "001" then state <= alt10k;		-- Staying at 10K -> SMOOTH
+						else state <= alt10k;	end if;
 				when alt25k =>
-					if    	input = "010" then state <= alt10k; 			-- Decending
-						elsif input = "001" then state <= smooth1; end if; -- Alt. 25k & SMOOTH then ++ smooth count
+					if    	input = "100" then state <= alt10k; 	-- Decending
+						elsif input = "001" then state <= smooth1; 	-- Alt. 25k & SMOOTH then ++ smooth count
+						else state <= alt25k;	end if;
 				when smooth1 =>
-					if    	input = "001" then state <= smooth2; 			-- Alt. 25k & SMOOTH then ++ smooth count
-						elsif input = "010" then state <= alt10k; 			-- Decending
-						elsif input = "000" then state <= alt25k; end if; 	-- Turbulence 
+					if    	input = "001" then state <= smooth2; 	-- Alt. 25k & SMOOTH then ++ smooth count
+						elsif input = "100" then state <= alt10k; 	-- Decending
+						elsif input = "010" then state <= alt25k; 	-- Turbulence 
+						else state <= alt25k;	end if;
 				when smooth2 =>
-					if    	input = "001" then state <= smooth3; 			-- Alt. 25k & SMOOTH then ++ smooth count
-						elsif input = "010" then state <= alt10k; 			-- Decending
-						elsif input = "000" then state <= alt25k; end if; 	-- Turbulence 
+					if    	input = "001" then state <= smooth3; 	-- Alt. 25k & SMOOTH then ++ smooth count
+						elsif input = "100" then state <= alt10k; 	-- Decending
+						elsif input = "010" then state <= alt25k; 	-- Turbulence 
+						else state <= alt25k;	end if;
 				when smooth3 =>
-					if    	input = "001" then state <= smooth4; 			-- Alt. 25k & SMOOTH then ++ smooth count
-						elsif input = "010" then state <= alt10k; 			-- Decending
-						elsif input = "000" then state <= alt25k; end if; 	-- Turbulence 
+					if    	input = "001" then state <= smooth4; 	-- Alt. 25k & SMOOTH then ++ smooth count
+						elsif input = "100" then state <= alt10k; 	-- Decending
+						elsif input = "010" then state <= alt25k; 	-- Turbulence 
+						else state <= alt25k;	end if;
 				when smooth4 =>
-					if    	input = "001" then state <= smooth5; 			-- Alt. 25k & SMOOTH then ++ smooth count
-						elsif input = "010" then state <= alt10k; 			-- Decending
-						elsif input = "000" then state <= alt25k; end if; 	-- Turbulence 
+					if    	input = "001" then state <= smooth5; 	-- Alt. 25k & SMOOTH then ++ smooth count
+						elsif input = "100" then state <= alt10k; 	-- Decending
+						elsif input = "010" then state <= alt25k; 	-- Turbulence 
+						else state <= alt25k;	end if;
 				when smooth5 =>
-					if    	input = "001" then state <= smooth5; 			-- Alt. 25k & SMOOTH & ALREADY SMOOTH 5 KEEP SMOOTH
-						elsif input = "010" then state <= alt10k; 			-- Decending
-						elsif input = "000" then state <= alt25k; end if; 	-- Turbulence 
+					if    	input = "001" then state <= smooth5; 	-- Alt. 25k & SMOOTH & ALREADY SMOOTH 5 KEEP SMOOTH
+						elsif input = "100" then state <= alt10k; 	-- Decending
+						elsif input = "010" then state <= alt25k; 	-- Turbulence 
+						else state <= alt25k;	end if;
 			end case;
 		end if; --end rising.  
     end process;
 	 
 	  with state select
-	     output <= "11" when gnd,			-- On ground: No electronics & Seatbelts
+	     signDisplay <= "11" when gnd,			-- On ground: No electronics & Seatbelts
 		       		"00" when smooth5,	-- Above 25k & Smooth: Electronics & No Seatbelts
 						"01" when others;		-- Climbing or Decending
 
   with state select
-	     output2 <= "0001" when gnd,
+	     currentState <= "0001" when gnd,
 		             "0010" when alt10k,
 						 "0011" when alt25k,
 						 "0100" when smooth1,

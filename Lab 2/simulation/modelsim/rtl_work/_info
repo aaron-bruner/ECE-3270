@@ -8,26 +8,26 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dN:/GitHub/ECE-3270/Lab 2/simulation/modelsim
+Z0 dD:/GitHub/ECE-3270/Lab 2/simulation/modelsim
 Emoorefsm
-Z1 w1646763314
+Z1 w1646849981
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 !i122 0
 R0
-Z4 8N:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd
-Z5 FN:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd
+Z4 8D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd
+Z5 FD:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd
 l0
 L4 1
 V3SY`J7`W@zEY8jaC@1oKX1
 !s100 8E0bn:nT@EjC7EZaXcNdj3
 Z6 OV;C;2020.1;71
 31
-Z7 !s110 1646764020
+Z7 !s110 1646851894
 !i10b 1
-Z8 !s108 1646764019.000000
-Z9 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd|
-Z10 !s107 N:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd|
+Z8 !s108 1646851894.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd|
+Z10 !s107 D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd|
 !i113 1
 Z11 o-93 -work work
 Z12 tExplicit 1 CvgOpt 0
@@ -37,9 +37,9 @@ R3
 DEx4 work 8 moorefsm 0 22 3SY`J7`W@zEY8jaC@1oKX1
 !i122 0
 l19
-L16 62
-VAcgD[]oG9[9]AMg[R8NN10
-!s100 Qf<IXNmd?J37ChzAJ`R7C3
+L16 61
+VO`QUhF;<EoULHTA6cL@8l3
+!s100 AbSdjmKOUICG1FNi8EZXe2
 R6
 31
 R7
@@ -51,13 +51,13 @@ R10
 R11
 R12
 Emoorefsm_vhd_tst
-Z13 w1646763965
+R1
 R2
 R3
-!i122 1
+!i122 2
 R0
-Z14 8N:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht
-Z15 FN:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht
+Z13 8D:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht
+Z14 FD:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht
 l0
 L31 1
 VgRgAhaI>1>WMHbK`dm9>V0
@@ -66,9 +66,9 @@ R6
 31
 R7
 !i10b 1
-Z16 !s108 1646764020.000000
-Z17 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht|
-!s107 N:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht|
+R8
+Z15 !s90 -reportprogress|300|-93|-work|work|D:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht|
+!s107 D:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht|
 !i113 1
 R11
 R12
@@ -76,7 +76,7 @@ Amoorefsm_arch
 R2
 R3
 DEx4 work 16 moorefsm_vhd_tst 0 22 gRgAhaI>1>WMHbK`dm9>V0
-!i122 1
+!i122 2
 l50
 L33 122
 VZ]XQfUc3X7LojC?bkeQ<n0
@@ -85,9 +85,50 @@ R6
 31
 R7
 !i10b 1
-R16
-R17
-Z18 !s107 N:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht|
+R8
+R15
+Z16 !s107 D:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht|
+!i113 1
+R11
+R12
+Emoorefsmb
+Z17 w1646851837
+R2
+R3
+!i122 1
+R0
+Z18 8D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd
+Z19 FD:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd
+l0
+L4 1
+V7Bd:Vz_m:ieZ^9S:Z0loe0
+!s100 62M5gmgez85;=encCG25k2
+R6
+31
+R7
+!i10b 1
+R8
+Z20 !s90 -reportprogress|300|-93|-work|work|D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd|
+Z21 !s107 D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd|
+!i113 1
+R11
+R12
+Astruct
+R2
+R3
+DEx4 work 9 moorefsmb 0 22 7Bd:Vz_m:ieZ^9S:Z0loe0
+!i122 1
+l24
+L11 24
+VBm96ZL^hLIHU`o]l[OXaM0
+!s100 5Qz?fJk@3b1WSBIK6m2OD1
+R6
+31
+R7
+!i10b 1
+R8
+R20
+R21
 !i113 1
 R11
 R12

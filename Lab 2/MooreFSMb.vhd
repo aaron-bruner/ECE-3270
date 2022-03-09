@@ -3,9 +3,9 @@ USE ieee.std_logic_1164.all;
 
 ENTITY MooreFSMb IS
 	port(
-		SW    : IN STD_LOGIC_VECTOR(9 downto 0);
-		LEDR : OUT STD_LOGIC_VECTOR(9 downto 0);
-		KEY  : IN STD_LOGIC_VECTOR(3 downto 0));
+		SW    : IN STD_LOGIC_VECTOR(3 downto 0);
+		LEDR : OUT STD_LOGIC_VECTOR(5 downto 0);
+		KEY  : IN STD_LOGIC_VECTOR(3 DOWNTO 0));
 END MooreFSMb;
 
 ARCHITECTURE struct OF MooreFSMb IS
@@ -25,9 +25,9 @@ begin
 mmmap : MooreFSM
 port map(
 	 clk => KEY(0),
-	 rst=>SW(7),
+	 rst=>SW(3),
 	 input=>SW(2 downto 0),
-	 output=>LEDR(9 downto 8),
+	 output=>LEDR(5 DOWNTO 4),
 	 output2=>LEDR(3 downto 0)
 );
 

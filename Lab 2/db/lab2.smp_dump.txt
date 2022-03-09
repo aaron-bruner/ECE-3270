@@ -1,5 +1,5 @@
 
-State Machine - |MooreFSM|state
+State Machine - |MooreFSMb|MooreFSM:mmmap|state
 Name state.smooth5 state.smooth4 state.smooth3 state.smooth2 state.smooth1 state.alt25k state.alt10k state.gnd 
 state.gnd 0 0 0 0 0 0 0 0 
 state.alt10k 0 0 0 0 0 0 1 1 

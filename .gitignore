@@ -1,2 +1,5 @@
 
 *.flock
+*.db_info
+*.tmw_info
+*.qws

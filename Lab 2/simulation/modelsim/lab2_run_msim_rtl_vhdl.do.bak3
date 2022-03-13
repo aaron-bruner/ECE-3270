@@ -6,6 +6,7 @@ vlib rtl_work
 vmap work rtl_work
 
 vcom -93 -work work {D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd}
+vcom -93 -work work {D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd}
 
 vcom -93 -work work {D:/GitHub/ECE-3270/Lab 2/simulation/modelsim/MooreFSM.vht}
 

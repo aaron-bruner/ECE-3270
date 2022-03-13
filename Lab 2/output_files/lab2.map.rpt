@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab2
-Wed Mar 09 13:52:51 2022
+Sat Mar 12 23:16:42 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,7 +13,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |MooreFSMb|MooreFSM:mmmap|state
+  8. State Machine - |MooreFSM|state
   9. General Register Statistics
  10. Post-Synthesis Netlist Statistics for Top Partition
  11. Elapsed Time Per Partition
@@ -44,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 09 13:52:51 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 12 23:16:42 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; lab2                                        ;
-; Top-level Entity Name              ; MooreFSMb                                   ;
+; Top-level Entity Name              ; MooreFSM                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 23                                          ;
-;     Total combinational functions  ; 23                                          ;
+; Total logic elements               ; 16                                          ;
+;     Total combinational functions  ; 16                                          ;
 ;     Dedicated logic registers      ; 8                                           ;
 ; Total registers                    ; 8                                           ;
-; Total pins                         ; 14                                          ;
+; Total pins                         ; 11                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -69,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C6GES   ;                    ;
-; Top-level entity name                                            ; MooreFSMb          ; lab2               ;
+; Top-level entity name                                            ; MooreFSM           ; lab2               ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -166,62 +166,60 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                  ;
-+----------------------------------+-----------------+-----------------+----------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path           ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------+---------+
-; MooreFSM.vhd                     ; yes             ; User VHDL File  ; D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd  ;         ;
-; MooreFSMb.vhd                    ; yes             ; User VHDL File  ; D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                 ;
++----------------------------------+-----------------+-----------------+---------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path          ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------+---------+
+; MooreFSM.vhd                     ; yes             ; User VHDL File  ; D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 23          ;
-;                                             ;             ;
-; Total combinational functions               ; 23          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 16          ;
-;     -- 3 input functions                    ; 6           ;
-;     -- <=2 input functions                  ; 1           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 23          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 8           ;
-;     -- Dedicated logic registers            ; 8           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 14          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; SW[0]~input ;
-; Maximum fan-out                             ; 9           ;
-; Total fan-out                               ; 128         ;
-; Average fan-out                             ; 2.17        ;
-+---------------------------------------------+-------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 16             ;
+;                                             ;                ;
+; Total combinational functions               ; 16             ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 11             ;
+;     -- 3 input functions                    ; 4              ;
+;     -- <=2 input functions                  ; 1              ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 16             ;
+;     -- arithmetic mode                      ; 0              ;
+;                                             ;                ;
+; Total registers                             ; 8              ;
+;     -- Dedicated logic registers            ; 8              ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 11             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; input[1]~input ;
+; Maximum fan-out                             ; 9              ;
+; Total fan-out                               ; 99             ;
+; Average fan-out                             ; 2.15           ;
++---------------------------------------------+----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name       ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+-------------+--------------+
-; |MooreFSMb                 ; 23 (0)              ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 14   ; 0            ; 0          ; |MooreFSMb                ; MooreFSMb   ; work         ;
-;    |MooreFSM:mmmap|        ; 23 (23)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MooreFSMb|MooreFSM:mmmap ; MooreFSM    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |MooreFSM                  ; 16 (16)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 11   ; 0            ; 0          ; |MooreFSM           ; MooreFSM    ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |MooreFSMb|MooreFSM:mmmap|state                                                                                         ;
+; State Machine - |MooreFSM|state                                                                                                         ;
 +---------------+---------------+---------------+---------------+---------------+---------------+--------------+--------------+-----------+
 ; Name          ; state.smooth5 ; state.smooth4 ; state.smooth3 ; state.smooth2 ; state.smooth1 ; state.alt25k ; state.alt10k ; state.gnd ;
 +---------------+---------------+---------------+---------------+---------------+---------------+--------------+--------------+-----------+
@@ -256,18 +254,18 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 14                          ;
+; boundary_port         ; 11                          ;
 ; cycloneiii_ff         ; 8                           ;
 ;     CLR               ; 8                           ;
-; cycloneiii_lcell_comb ; 27                          ;
-;     normal            ; 27                          ;
+; cycloneiii_lcell_comb ; 20                          ;
+;     normal            ; 20                          ;
 ;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 1                           ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 16                          ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 11                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.23                        ;
+; Average LUT depth     ; 1.85                        ;
 +-----------------------+-----------------------------+
 
 
@@ -286,33 +284,28 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Mar 09 13:52:42 2022
+    Info: Processing started: Sat Mar 12 23:16:34 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab2 -c lab2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file moorefsm.vhd
-    Info (12022): Found design unit 1: MooreFSM-impl File: D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd Line: 16
+    Info (12022): Found design unit 1: MooreFSM-impl File: D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd Line: 14
     Info (12023): Found entity 1: MooreFSM File: D:/GitHub/ECE-3270/Lab 2/MooreFSM.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file moorefsmb.vhd
     Info (12022): Found design unit 1: MooreFSMb-struct File: D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd Line: 11
     Info (12023): Found entity 1: MooreFSMb File: D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd Line: 4
-Info (12127): Elaborating entity "MooreFSMb" for the top level hierarchy
-Info (12128): Elaborating entity "MooreFSM" for hierarchy "MooreFSM:mmmap" File: D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd Line: 25
+Info (12127): Elaborating entity "MooreFSM" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd Line: 8
-    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd Line: 8
-    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/GitHub/ECE-3270/Lab 2/MooreFSMb.vhd Line: 8
-Info (21057): Implemented 37 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 8 input pins
+Info (21057): Implemented 27 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
     Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 23 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4803 megabytes
-    Info: Processing ended: Wed Mar 09 13:52:51 2022
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:19
+    Info (21061): Implemented 16 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Sat Mar 12 23:16:42 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
 
 

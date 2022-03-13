@@ -4,47 +4,47 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "LEDR[0]",
+					"name" : "signDisplay[0]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[1]",
+					"name" : "signDisplay[1]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[2]",
+					"name" : "currentState[0]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[3]",
+					"name" : "currentState[1]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[4]",
+					"name" : "currentState[2]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[5]",
+					"name" : "currentState[3]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[1]",
+					"name" : "input[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "input[1]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[2]",
+					"name" : "input[2]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[0]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
-					"name" : "SW[3]",
+					"name" : "rst",
 					"strict" : false
 				}
 			]

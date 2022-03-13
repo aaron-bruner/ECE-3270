@@ -5,11 +5,9 @@ ENTITY MooreFSM IS
 port(
     clk: IN STD_LOGIC;
     rst: IN STD_LOGIC;
-
-    input: IN STD_LOGIC_VECTOR(2 downto 0);		-- alt10k, alt25k, smooth
+    input: IN STD_LOGIC_VECTOR(2 downto 0);			-- alt10k, alt25k, smooth
     signDisplay: OUT STD_LOGIC_VECTOR(1 downto 0);	-- no-electronics, seat-belt
-	 currentState: OUT STD_LOGIC_VECTOR(3 downto 0)	-- Sign signDisplay
-);
+	 currentState: OUT STD_LOGIC_VECTOR(3 downto 0));
 END MooreFSM;
 
 
@@ -71,20 +69,20 @@ begin
 		       		"00" when smooth5,	-- Above 25k & Smooth: Electronics & No Seatbelts
 						"01" when others;		-- Climbing or Decending
 
-  with state select
+  with state select		-- Output binary counter to debug current state on board
 	     currentState <= "0001" when gnd,
-		             "0010" when alt10k,
-						 "0011" when alt25k,
-						 "0100" when smooth1,
-						 "0101" when smooth2,
-						 "0110" when smooth3,
-						 "0111" when smooth4,
-						 "1000" when smooth5;
+								"0010" when alt10k,
+								"0011" when alt25k,
+								"0100" when smooth1,
+								"0101" when smooth2,
+								"0110" when smooth3,
+								"0111" when smooth4,
+								"1000" when smooth5;
 
 end impl;
 
 
--- Notes
+-- Notes:
 
 -- Whenever the airplane passes 10 000 (25 000) feet moving in either direction,
 -- alt10k (alt25k) will pulse high for one cycle.

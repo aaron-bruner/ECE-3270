@@ -35,15 +35,15 @@ ARCHITECTURE MooreFSM_arch OF MooreFSM_vhd_tst IS
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
 SIGNAL input : STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL output : STD_LOGIC_VECTOR(1 DOWNTO 0);
-SIGNAL output2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL signDisplay : STD_LOGIC_VECTOR(1 DOWNTO 0);
+SIGNAL currentState : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL rst : STD_LOGIC;
 COMPONENT MooreFSM
 	PORT (
 	clk : IN STD_LOGIC;
 	input : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-	output : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-	output2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	signDisplay : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+	currentState : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	rst : IN STD_LOGIC
 	);
 END COMPONENT;
@@ -53,8 +53,8 @@ BEGIN
 -- list connections between master ports and signals
 	clk => clk,
 	input => input,
-	output => output,
-	output2 => output2,
+	signDisplay => signDisplay,
+	currentState => currentState,
 	rst => rst
 	);
 init : PROCESS                                               
@@ -68,86 +68,72 @@ always : PROCESS
 -- (        )                                                 
 -- variable declarations                                      
 BEGIN                                                         
-      rst<='1'; --LOW Activate
-		--TEST state gnd
-		clk<='1';
-      input<="000";
-		wait for 10ns;	  
+      rst	<= '1';
 		
-		--TEST gnd-->10k
-		clk<='0';
-		
-		wait for 10ns;
-		clk<='1';
-		input<="100";
-		wait for 10ns;
-		
-		--TEST 10K-->25K
-			clk<='0';
-		
-		wait for 10ns;
-		clk<='1';
-		input<="010";
-		wait for 10ns;
-		
-		--TEST 25K-->10k
-			clk<='0';	
-		wait for 10ns;
-		clk<='1';
-		input<="010";
-		wait for 10ns;
-		
-		--TEST 10k->25k and s1->s2->s3->s4->s5
-	   --1.Setting back to  25k
-    	clk<='0';	
-		wait for 10ns;
-		clk<='1';
-		input<="010";
-		wait for 10ns;
-		--2. -->s1
-		clk<='0';	
-		wait for 10ns;
-		clk<='1';
-		input<="001";
-		wait for 10ns;
-		--3. -->s2
-			clk<='0';	
-		wait for 10ns;
-		clk<='1';
-		input<="001";
-		wait for 10ns;
-		--4. -->s3
-			clk<='0';	
-		wait for 10ns;
-		clk<='1';
-		input<="001";
-		wait for 10ns;
-		--5 -->s4
-			clk<='0';	
-		wait for 10ns;
-		clk<='1';
-		input<="001";
-		wait for 10ns;
-		--6 -->s5
-			clk<='0';	
-		wait for 10ns;
-		clk<='1';
-		input<="001";
-		wait for 10ns;
+		clk	<= '1';
+      input <= "000"; -- Current State: Ground
+		wait for 10ns;  -- Expected Output: 11
+		clk	<= '0';
 		
 		
-		--TEST s5-->alt25k  ()not stable)
-    	clk<='0';	
 		wait for 10ns;
-		clk<='1';
-		input<="000";
-		wait for 10ns;	
+		clk	<= '1';
+		input <= "100"; -- Current State: Alt10k
+		wait for 10ns;  -- Expected Output: 01
+		clk	<= '0';
 
-	--TEST rest
-     clk<='0';	
 		wait for 10ns;
-		clk<='1';rst<='0';
-		input<="000";
+		clk	<= '1';
+		input <= "010"; -- Current State: Alt25k
+		wait for 10ns;  -- Expected Output: 01
+		clk	<= '0';
+
+		wait for 10ns;
+		clk	<= '1';
+		input <= "001"; -- Current State: Smooth 1
+		wait for 10ns;  -- Expected Output: 01
+		clk	<= '0';
+
+		wait for 10ns;
+		clk	<= '1';
+		input <= "001"; -- Current State: Smooth 2
+		wait for 10ns;  -- Expected Output: 01
+		clk	<= '0';
+
+		wait for 10ns;
+		clk	<= '1';
+		input <= "001"; -- Current State: Smooth 3
+		wait for 10ns;  -- Expected Output: 01
+		clk	<= '0';
+
+		wait for 10ns;
+		clk	<= '1';
+		input <= "001"; -- Current State: Smooth 4
+		wait for 10ns;  -- Expected Output: 01
+		clk	<= '0';
+
+		wait for 10ns;
+		clk	<= '1';
+		input <= "001"; -- Current State: Smooth 5
+		wait for 10ns;  -- Expected Output: 00
+		clk	<= '0';
+
+		wait for 10ns;
+		clk	<= '1';
+		input <= "010"; -- Current State: Alt25k
+		wait for 10ns;	 -- Expected Output: 01
+		clk	<= '0';
+
+		wait for 10ns;
+		clk	<= '1';
+		input <= "100"; -- Current State: Alt10k
+		wait for 10ns;	 -- Expected Output: 01
+		clk	<= '0';
+		
+		wait for 10ns;
+		clk	<= '1';
+		rst	<= '0';	 -- Reset
+		input	<= "000"; -- Expected Output: 11
 		wait for 10ns;	
 WAIT;                                                        
 END PROCESS always;                                          

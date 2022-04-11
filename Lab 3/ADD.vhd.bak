@@ -1,0 +1,28 @@
+-- Part ADDER - Lab 3 (Simple Processor)
+-- Aaron Bruner
+-- C16480080
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+
+entity ADD is
+    generic (N : INTEGER := 8; NN : INTEGER := 16); -- Constant integer so we can change data-width with ease
+	 port (A		: IN  STD_LOGIC_VECTOR(NN-1 DOWNTO 0);
+			 B		: IN  STD_LOGIC_VECTOR(NN-1 DOWNTO 0);
+	       Cin	: IN  STD_LOGIC;
+			 S		: OUT STD_LOGIC_VECTOR(NN-1 DOWNTO 0);
+			 Cout	: OUT STD_LOGIC
+	 );
+end ADD;
+
+architecture main of ADD is
+    signal SUM: STD_LOGIC_VECTOR(NN DOWNTO 0);
+	 begin 
+	     SUM	 <= ('0' & A) + ('0' & B) + Cin;
+		  Cout <= SUM(NN);
+		  S 	 <= SUM(NN-1 DOWNTO 0);
+end main;
+
+-- https://allaboutfpga.com/vhdl-code-for-full-adder/
+-- VHDL Full Adder implmentation - Further discussed in report

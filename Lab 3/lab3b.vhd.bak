@@ -1,0 +1,39 @@
+-- Part ADDER - Lab 3 (Simple Processor)
+-- Aaron Bruner
+-- C16480080
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+
+ENTITY lab3b IS
+    GENERIC (N : INTEGER := 8; NN : INTEGER := 16); -- Constant integer so we can change data-width with ease
+    PORT( SW   : in  STD_LOGIC_VECTOR(9 DOWNTO 0);
+			 KEY  : in  STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 LEDR : out STD_LOGIC_VECTOR(9 DOWNTO 0)
+
+    );
+END lab3b;
+
+
+ARCHITECTURE struct OF lab3b IS
+COMPONENT lab3
+    GENERIC (N : INTEGER := 8; NN : INTEGER := 16); -- Constant integer so we can change data-width with ease
+    PORT( DIN     : IN  STD_LOGIC_VECTOR(NN-1 DOWNTO 0);
+			 clk	   : IN  STD_LOGIC;
+			 Run	   : IN  STD_LOGIC;
+			 Resetn  : IN  STD_LOGIC;
+			 Bus_out : OUT STD_LOGIC_VECTOR(NN-1 DOWNTO 0);
+			 Done    : OUT STD_LOGIC
+	 );
+end component;
+begin
+   dut : lab3
+   GENERIC MAP(NN)
+   port map( SW(7 DOWNTO 0),
+				 KEY(0),
+				 SW(9),
+				 SW(8),
+				 LEDR(7 DOWNTO 0),
+				 LEDR(9));
+end struct;

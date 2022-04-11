@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'KEY[0]'
+Slack : -6.393
+TNS   : -445.153
+
+Type  : Slow 1200mV 85C Model Setup 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : -3.930
+TNS   : -66.271
+
+Type  : Slow 1200mV 85C Model Setup 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : -1.756
+TNS   : -3.217
+
+Type  : Slow 1200mV 85C Model Hold 'KEY[0]'
+Slack : 0.086
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : 0.618
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : 1.133
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'KEY[0]'
+Slack : -3.000
+TNS   : -115.424
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : 0.369
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : 0.412
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'KEY[0]'
+Slack : -5.674
+TNS   : -392.687
+
+Type  : Slow 1200mV 0C Model Setup 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : -3.571
+TNS   : -61.496
+
+Type  : Slow 1200mV 0C Model Setup 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : -1.593
+TNS   : -2.908
+
+Type  : Slow 1200mV 0C Model Hold 'KEY[0]'
+Slack : -0.015
+TNS   : -0.015
+
+Type  : Slow 1200mV 0C Model Hold 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : 0.504
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : 1.085
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : -3.000
+TNS   : -115.424
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : 0.410
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : 0.441
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'KEY[0]'
+Slack : -3.037
+TNS   : -207.135
+
+Type  : Fast 1200mV 0C Model Setup 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : -1.521
+TNS   : -23.320
+
+Type  : Fast 1200mV 0C Model Setup 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : -0.543
+TNS   : -0.606
+
+Type  : Fast 1200mV 0C Model Hold 'KEY[0]'
+Slack : 0.113
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : 0.254
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : 0.352
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : -3.000
+TNS   : -116.556
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'lab3:dut|DFlipFlop:DFFComp|internal_d[7]'
+Slack : 0.373
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'lab3:dut|FiniteStateMachine:FSMComp|state.T0'
+Slack : 0.445
+TNS   : 0.000
+
+------------------------------------------------------------

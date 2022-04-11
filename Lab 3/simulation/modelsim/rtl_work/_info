@@ -1,0 +1,322 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dN:/GitHub/ECE-3270/Lab 3/simulation/modelsim
+Eadd
+Z1 w1649531815
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 2
+R0
+Z6 8N:/GitHub/ECE-3270/Lab 3/ADD.vhd
+Z7 FN:/GitHub/ECE-3270/Lab 3/ADD.vhd
+l0
+L9 1
+V5=VF;S4>AP`Y_]TIhdX=G1
+!s100 W<6lLk9EQzfgdG0nX`CZ?2
+Z8 OV;C;2020.1;71
+31
+Z9 !s110 1649648446
+!i10b 1
+Z10 !s108 1649648446.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/ADD.vhd|
+Z12 !s107 N:/GitHub/ECE-3270/Lab 3/ADD.vhd|
+!i113 1
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
+Amain
+R2
+R3
+R4
+R5
+DEx4 work 3 add 0 22 5=VF;S4>AP`Y_]TIhdX=G1
+!i122 2
+l20
+L18 7
+V]0`L4IU?[Sf4bYJl==FF21
+!s100 [;lYe2o;U1OI_oAg?^[Ec2
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Eaddsub
+Z15 w1649534128
+R2
+R3
+R4
+R5
+!i122 3
+R0
+Z16 8N:/GitHub/ECE-3270/Lab 3/AddSub.vhd
+Z17 FN:/GitHub/ECE-3270/Lab 3/AddSub.vhd
+l0
+L9 1
+V3Q?EN7KB8AJOiG^MGEV0=2
+!s100 6eCzSgl8]oScT<8b=@UKI0
+R8
+31
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/AddSub.vhd|
+Z19 !s107 N:/GitHub/ECE-3270/Lab 3/AddSub.vhd|
+!i113 1
+R13
+R14
+Astructural_impl
+R2
+R3
+R4
+R5
+DEx4 work 6 addsub 0 22 3Q?EN7KB8AJOiG^MGEV0=2
+!i122 3
+l31
+L18 22
+V8lk6@z50dkaLBP62l]lW32
+!s100 MhMKOzOjQjZ3zl0:k6@oD1
+R8
+31
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Edflipflop
+Z20 w1649534752
+R2
+R3
+R4
+R5
+!i122 1
+R0
+Z21 8N:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd
+Z22 FN:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd
+l0
+L9 1
+VjWRL2jg]GBL;hbdIma_:F0
+!s100 F6JKlKa9czk>c`lSn0eT42
+R8
+31
+Z23 !s110 1649648445
+!i10b 1
+Z24 !s108 1649648445.000000
+Z25 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd|
+Z26 !s107 N:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd|
+!i113 1
+R13
+R14
+Amixed
+R2
+R3
+R4
+R5
+DEx4 work 9 dflipflop 0 22 jWRL2jg]GBL;hbdIma_:F0
+!i122 1
+l21
+L18 16
+VcmbDWb_SBnK^[lC2zNJE63
+!s100 N;Pj>bLek6bUllLc4eDTQ3
+R8
+31
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R13
+R14
+Efinitestatemachine
+Z27 w1649646909
+R2
+R3
+R4
+R5
+!i122 5
+R0
+Z28 8N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd
+Z29 FN:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd
+l0
+L9 1
+V2fg`JYcgOEbS^CULf<_U60
+!s100 DZh1>akQ7K@e=;i4@0ZAe3
+R8
+31
+R9
+!i10b 1
+R10
+Z30 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd|
+Z31 !s107 N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd|
+!i113 1
+R13
+R14
+Astruct
+R2
+R3
+R4
+R5
+DEx4 work 18 finitestatemachine 0 22 2fg`JYcgOEbS^CULf<_U60
+!i122 5
+l27
+L18 127
+VK20YAc9f0VXBiH__eb`Hg2
+!s100 <G5SJD0`Z=g7U6I46Z>8a1
+R8
+31
+R9
+!i10b 1
+R10
+R30
+R31
+!i113 1
+R13
+R14
+Elab3
+Z32 w1649641755
+R2
+R3
+R4
+R5
+!i122 0
+R0
+Z33 8N:/GitHub/ECE-3270/Lab 3/lab3.vhd
+Z34 FN:/GitHub/ECE-3270/Lab 3/lab3.vhd
+l0
+L10 1
+VSSRkTlU=>J1E7nO_hlhz41
+!s100 @;fY26XZbYE?`]z][zA0h3
+R8
+31
+R23
+!i10b 1
+R24
+Z35 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/lab3.vhd|
+Z36 !s107 N:/GitHub/ECE-3270/Lab 3/lab3.vhd|
+!i113 1
+R13
+R14
+Astruct
+R2
+R3
+R4
+R5
+DEx4 work 4 lab3 0 22 SSRkTlU=>J1E7nO_hlhz41
+!i122 0
+l60
+L18 76
+V3alSJ;25S]L`HRlhL[`a80
+!s100 Ba:;17I5@VHb2hnnjKEkf2
+R8
+31
+R23
+!i10b 1
+R24
+R35
+R36
+!i113 1
+R13
+R14
+Elab3_vhd_tst
+Z37 w1649648423
+R4
+R5
+!i122 6
+R0
+Z38 8N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht
+Z39 FN:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht
+l0
+L31 1
+VfJmH1[B1G[A>Gb2ziF3Sc2
+!s100 ndPZ<l0AAOOi::TO61zA[1
+R8
+31
+R9
+!i10b 1
+R10
+Z40 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
+!s107 N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
+!i113 1
+R13
+R14
+Alab3_arch
+R4
+R5
+DEx4 work 12 lab3_vhd_tst 0 22 fJmH1[B1G[A>Gb2ziF3Sc2
+!i122 6
+l52
+L33 94
+V[e80XVb_SOVdmFH_]RfU_1
+!s100 4[AVLHUzaPiTmg5SD4hkX3
+R8
+31
+R9
+!i10b 1
+R10
+R40
+Z41 !s107 N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
+!i113 1
+R13
+R14
+Emux
+Z42 w1649621753
+R2
+R3
+R4
+R5
+!i122 4
+R0
+Z43 8N:/GitHub/ECE-3270/Lab 3/MUX.vhd
+Z44 FN:/GitHub/ECE-3270/Lab 3/MUX.vhd
+l0
+L9 1
+VGUmlMFa6F5oe5LcAdc0Iz1
+!s100 >?fDY`a;1TcHnD9;CfU<02
+R8
+31
+R9
+!i10b 1
+R10
+Z45 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/MUX.vhd|
+Z46 !s107 N:/GitHub/ECE-3270/Lab 3/MUX.vhd|
+!i113 1
+R13
+R14
+Amain
+R2
+R3
+R4
+R5
+DEx4 work 3 mux 0 22 GUmlMFa6F5oe5LcAdc0Iz1
+!i122 4
+l28
+L27 15
+VoQzF=E?f3WKfK0A7PN^>30
+!s100 ICAQM=_k5Of[iNPUHKJ:g0
+R8
+31
+R9
+!i10b 1
+R10
+R45
+R46
+!i113 1
+R13
+R14

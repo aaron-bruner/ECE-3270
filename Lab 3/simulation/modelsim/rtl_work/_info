@@ -25,9 +25,9 @@ V5=VF;S4>AP`Y_]TIhdX=G1
 !s100 W<6lLk9EQzfgdG0nX`CZ?2
 Z8 OV;C;2020.1;71
 31
-Z9 !s110 1649648446
+Z9 !s110 1649713979
 !i10b 1
-Z10 !s108 1649648446.000000
+Z10 !s108 1649713979.000000
 Z11 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/ADD.vhd|
 Z12 !s107 N:/GitHub/ECE-3270/Lab 3/ADD.vhd|
 !i113 1
@@ -115,11 +115,11 @@ VjWRL2jg]GBL;hbdIma_:F0
 !s100 F6JKlKa9czk>c`lSn0eT42
 R8
 31
-Z23 !s110 1649648445
+R9
 !i10b 1
-Z24 !s108 1649648445.000000
-Z25 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd|
-Z26 !s107 N:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd|
+Z23 !s108 1649713978.000000
+Z24 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd|
+Z25 !s107 N:/GitHub/ECE-3270/Lab 3/DFlipFlop.vhd|
 !i113 1
 R13
 R14
@@ -136,24 +136,24 @@ VcmbDWb_SBnK^[lC2zNJE63
 !s100 N;Pj>bLek6bUllLc4eDTQ3
 R8
 31
-R23
+R9
 !i10b 1
+R23
 R24
 R25
-R26
 !i113 1
 R13
 R14
 Efinitestatemachine
-Z27 w1649646909
+Z26 w1649646909
 R2
 R3
 R4
 R5
 !i122 5
 R0
-Z28 8N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd
-Z29 FN:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd
+Z27 8N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd
+Z28 FN:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd
 l0
 L9 1
 V2fg`JYcgOEbS^CULf<_U60
@@ -163,8 +163,8 @@ R8
 R9
 !i10b 1
 R10
-Z30 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd|
-Z31 !s107 N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd|
+Z29 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd|
+Z30 !s107 N:/GitHub/ECE-3270/Lab 3/FiniteStateMachine.vhd|
 !i113 1
 R13
 R14
@@ -184,30 +184,30 @@ R8
 R9
 !i10b 1
 R10
+R29
 R30
-R31
 !i113 1
 R13
 R14
 Elab3
-Z32 w1649641755
+Z31 w1649713904
 R2
 R3
 R4
 R5
 !i122 0
 R0
-Z33 8N:/GitHub/ECE-3270/Lab 3/lab3.vhd
-Z34 FN:/GitHub/ECE-3270/Lab 3/lab3.vhd
+Z32 8N:/GitHub/ECE-3270/Lab 3/lab3.vhd
+Z33 FN:/GitHub/ECE-3270/Lab 3/lab3.vhd
 l0
 L10 1
 VSSRkTlU=>J1E7nO_hlhz41
 !s100 @;fY26XZbYE?`]z][zA0h3
 R8
 31
-R23
+Z34 !s110 1649713978
 !i10b 1
-R24
+R23
 Z35 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/lab3.vhd|
 Z36 !s107 N:/GitHub/ECE-3270/Lab 3/lab3.vhd|
 !i113 1
@@ -220,71 +220,71 @@ R4
 R5
 DEx4 work 4 lab3 0 22 SSRkTlU=>J1E7nO_hlhz41
 !i122 0
-l60
-L18 76
-V3alSJ;25S]L`HRlhL[`a80
-!s100 Ba:;17I5@VHb2hnnjKEkf2
+l59
+L18 75
+VcGi9YeFG?MUN?X@lAJhY<3
+!s100 aN6=S]BmgoJ>:6BbzfNd]1
 R8
 31
-R23
+R34
 !i10b 1
-R24
+R23
 R35
 R36
 !i113 1
 R13
 R14
 Elab3_vhd_tst
-Z37 w1649648423
+Z37 w1649703092
 R4
 R5
-!i122 6
+!i122 7
 R0
 Z38 8N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht
 Z39 FN:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht
 l0
 L31 1
-VfJmH1[B1G[A>Gb2ziF3Sc2
+VQ^=FgYlj;of3D[TVMjFn11
 !s100 ndPZ<l0AAOOi::TO61zA[1
 R8
-31
-R9
+32
+Z40 !s110 1649714035
 !i10b 1
-R10
-Z40 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
-!s107 N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
+Z41 !s108 1649714035.000000
+Z42 !s90 -reportprogress|300|-work|work|N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
+Z43 !s107 N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
 !i113 1
-R13
+Z44 o-work work
 R14
 Alab3_arch
 R4
 R5
-DEx4 work 12 lab3_vhd_tst 0 22 fJmH1[B1G[A>Gb2ziF3Sc2
-!i122 6
+DEx4 work 12 lab3_vhd_tst 0 22 Q^=FgYlj;of3D[TVMjFn11
+!i122 7
 l52
-L33 94
-V[e80XVb_SOVdmFH_]RfU_1
-!s100 4[AVLHUzaPiTmg5SD4hkX3
+Z45 L33 100
+VXHP2]h>]@Vm0ZzaLF09:H1
+Z46 !s100 XaI]nThKMzPXIWbYRK7Z@3
 R8
-31
-R9
-!i10b 1
-R10
+32
 R40
-Z41 !s107 N:/GitHub/ECE-3270/Lab 3/simulation/modelsim/lab3.vht|
+!i10b 1
+R41
+R42
+R43
 !i113 1
-R13
+R44
 R14
 Emux
-Z42 w1649621753
+Z47 w1649621753
 R2
 R3
 R4
 R5
 !i122 4
 R0
-Z43 8N:/GitHub/ECE-3270/Lab 3/MUX.vhd
-Z44 FN:/GitHub/ECE-3270/Lab 3/MUX.vhd
+Z48 8N:/GitHub/ECE-3270/Lab 3/MUX.vhd
+Z49 FN:/GitHub/ECE-3270/Lab 3/MUX.vhd
 l0
 L9 1
 VGUmlMFa6F5oe5LcAdc0Iz1
@@ -294,8 +294,8 @@ R8
 R9
 !i10b 1
 R10
-Z45 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/MUX.vhd|
-Z46 !s107 N:/GitHub/ECE-3270/Lab 3/MUX.vhd|
+Z50 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 3/MUX.vhd|
+Z51 !s107 N:/GitHub/ECE-3270/Lab 3/MUX.vhd|
 !i113 1
 R13
 R14
@@ -315,8 +315,8 @@ R8
 R9
 !i10b 1
 R10
-R45
-R46
+R50
+R51
 !i113 1
 R13
 R14

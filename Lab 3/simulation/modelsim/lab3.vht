@@ -85,42 +85,48 @@ BEGIN
 		 DIN<="1000000001010011";
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
---  		R2 = 10000000 01 011 010
+--  		R3 = 10000000 01 011 010
 		 DIN<="1000000001011010";
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
--- [mv] R2 to R4
+-- [mv] R2 to R4 (00000000 00 100 010)
 		 DIN<="0000000000100010";
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
--- [add] R0 + R3 -> R0
-		 DIN<="0000000010000011";  
+		 --Run <= '0';
+		 --Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;	-- For screenshot
+		 --Run <= '1';
+-- [add] R0 + R3 -> R0 (00000000 10 000 011)
+		 DIN<="0000000010000011";
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns; 
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
--- [sub] R4 - R1 -> R4
+-- [sub] R4 - R1 -> R4 (00000000 11 100 001)
 	    DIN<="0000000011100001";
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
--- 		R2 - R1 -> R2
+		 Run <= '0';
+		 --Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;	-- For screenshot
+		 --Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
+		 --Run <= '1';
+-- 		R2 - R1 -> R2 (00000000 11 010 001)
 	    DIN<="0000000011010001";
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 -- [resetn]
-		 Run		<=	'1';
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Resetn	<=	'0';
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
--- [run]
+-- [run]					  (00000000 11 001 000)
 		 Run		<=	'0';
 		 DIN		<=	"0000000011001000";
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
 		 Clock	<=	'0'; wait for 10ns; Clock	<=	'1'; wait for 10ns;
-WAIT;                                                        
-END PROCESS always;                                          
+		 WAIT;                                                        
+	END PROCESS always;                                          
 END lab3_arch;

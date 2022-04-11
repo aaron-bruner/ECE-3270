@@ -19,13 +19,12 @@ ARCHITECTURE struct OF lab3 IS
 
 -- The best way to read all of these signals is by looking at figure 1. 
 -- These are the wires that connect all of the components together.
-    SIGNAL Reg0 ,Reg1 ,Reg2 ,Reg3 ,Reg4 ,Reg5 ,Reg6 ,Reg7 ,A,G,S,sub,ovf : STD_LOGIC;
-    SIGNAL Reg0d,Reg1d,Reg2d,Reg3d,Reg4d,Reg5d,Reg6d,Reg7d 					 : STD_LOGIC_VECTOR(size-1 DOWNTO 0);
-    SIGNAL Reg0q,Reg1q,Reg2q,Reg3q,Reg4q,Reg5q,Reg6q,Reg7q 					 : STD_LOGIC_VECTOR(size-1 DOWNTO 0);
-	 SIGNAL data,Gq,Gd,Aq,Ad 										  					 : STD_LOGIC_VECTOR(size-1 DOWNTO 0);
-	 SIGNAL MUXoutOut     											  					 : STD_LOGIC_VECTOR(9 		DOWNTO 0); 
-	 SIGNAL MUXoutIn													  					 : STD_LOGIC_VECTOR(11 		DOWNTO 0);
-	 SIGNAL IR 																				 : STD_LOGIC_VECTOR(7 		DOWNTO 0);
+    SIGNAL R0 ,R1 ,R2 ,R3 ,R4 ,R5 ,R6 ,R7 ,A,G,S,sub,ovf : STD_LOGIC;
+    SIGNAL Reg0,Reg1,Reg2,Reg3,Reg4,Reg5,Reg6,Reg7 		: STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+	 SIGNAL data,Gq,Gd,Aq,Ad 										: STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+	 SIGNAL MUXoutOut     											: STD_LOGIC_VECTOR(9 	  DOWNTO 0); 
+	 SIGNAL MUXoutIn													: STD_LOGIC_VECTOR(11 	  DOWNTO 0);
+	 SIGNAL IR 															: STD_LOGIC_VECTOR(7 	  DOWNTO 0);
 
 -- Input all of our components for use.
     COMPONENT DFlipFlop 			GENERIC(size: integer := 8);
@@ -60,30 +59,30 @@ ARCHITECTURE struct OF lab3 IS
 BEGIN
 
 -- Put everything that is in figure 1 in the report here and wire it together.
-    R0 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg0,data(size-1 DOWNTO 0),Reg0q(size-1 DOWNTO 0));
-	 R1 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg1,data(size-1 DOWNTO 0),Reg1q(size-1 DOWNTO 0));
-	 R2 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg2,data(size-1 DOWNTO 0),Reg2q(size-1 DOWNTO 0));
-	 R3 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg3,data(size-1 DOWNTO 0),Reg3q(size-1 DOWNTO 0));
-	 R4 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg4,data(size-1 DOWNTO 0),Reg4q(size-1 DOWNTO 0));
-	 R5 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg5,data(size-1 DOWNTO 0),Reg5q(size-1 DOWNTO 0));
-	 R6 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg6,data(size-1 DOWNTO 0),Reg6q(size-1 DOWNTO 0));
-	 R7 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,Reg7,data(size-1 DOWNTO 0),Reg7q(size-1 DOWNTO 0));
-	 RA  			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,A,	  data(size-1 DOWNTO 0),Aq(	size-1 DOWNTO 0));
-	 RG  			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,G,	  Gd(	 size-1 DOWNTO 0),Gq(	size-1 DOWNTO 0));
-	 DFFComp 	: DFlipFlop 			GENERIC MAP(8) 	PORT MAP(Clock,S,	  DIN( 7 	  DOWNTO 0),IR(	7 		 DOWNTO 0));
+    R0C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R0,data(size-1 DOWNTO 0),Reg0(size-1 DOWNTO 0));
+	 R1C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R1,data(size-1 DOWNTO 0),Reg1(size-1 DOWNTO 0));
+	 R2C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R2,data(size-1 DOWNTO 0),Reg2(size-1 DOWNTO 0));
+	 R3C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R3,data(size-1 DOWNTO 0),Reg3(size-1 DOWNTO 0));
+	 R4C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R4,data(size-1 DOWNTO 0),Reg4(size-1 DOWNTO 0));
+	 R5C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R5,data(size-1 DOWNTO 0),Reg5(size-1 DOWNTO 0));
+	 R6C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R6,data(size-1 DOWNTO 0),Reg6(size-1 DOWNTO 0));
+	 R7C 			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,R7,data(size-1 DOWNTO 0),Reg7(size-1 DOWNTO 0));
+	 RA  			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,A,	data(size-1 DOWNTO 0),Aq(	size-1 DOWNTO 0));
+	 RG  			: DFlipFlop 			GENERIC MAP(size) PORT MAP(Clock,G,	Gd(  size-1 DOWNTO 0),Gq(	size-1 DOWNTO 0));
+	 DFFComp 	: DFlipFlop 			GENERIC MAP(8) 	PORT MAP(Clock,S,	DIN( 7      DOWNTO 0),IR(	7 		 DOWNTO 0));
 	 AddSubComp : AddSub 				GENERIC MAP(size) PORT MAP(Aq,	data,sub,						Gd,ovf);
-    MUXComp 	: MUX 					GENERIC MAP(size) PORT MAP(Reg0q,Reg1q,Reg2q,Reg3q,Reg4q,Reg5q,Reg6q,Reg7q,DIN,Gq,MUXoutOut,data);
+    MUXComp 	: MUX 					GENERIC MAP(size) PORT MAP(Reg0,Reg1,Reg2,Reg3,Reg4,Reg5,Reg6,Reg7,DIN,Gq,MUXoutOut,data);
     FSMComp 	: FiniteStateMachine GENERIC MAP(size) PORT MAP(Clock,Run,Resetn,IR,MUXoutOut,MUXoutIn,Done);
 	 
 	-- Results
-	 Reg0	<=	MUXoutIn(0);
-	 Reg1	<=	MUXoutIn(1);
-	 Reg2	<=	MUXoutIn(2);
-	 Reg3	<=	MUXoutIn(3);
-	 Reg4	<=	MUXoutIn(4);
-	 Reg5	<=	MUXoutIn(5);
-	 Reg6	<=	MUXoutIn(6);
-	 Reg7	<=	MUXoutIn(7);
+	 R0	<=	MUXoutIn(0);
+	 R1	<=	MUXoutIn(1);
+	 R2	<=	MUXoutIn(2);
+	 R3	<=	MUXoutIn(3);
+	 R4	<=	MUXoutIn(4);
+	 R5	<=	MUXoutIn(5);
+	 R6	<=	MUXoutIn(6);
+	 R7	<=	MUXoutIn(7);
 	 G		<=	MUXoutIn(8);
 	 A		<=	MUXoutIn(9);
 	 sub	<=	MUXoutIn(10);

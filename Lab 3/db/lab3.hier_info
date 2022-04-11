@@ -1,12 +1,12 @@
 |lab3
-Clock => DFlipFlop:R0.clk
-Clock => DFlipFlop:R1.clk
-Clock => DFlipFlop:R2.clk
-Clock => DFlipFlop:R3.clk
-Clock => DFlipFlop:R4.clk
-Clock => DFlipFlop:R5.clk
-Clock => DFlipFlop:R6.clk
-Clock => DFlipFlop:R7.clk
+Clock => DFlipFlop:R0C.clk
+Clock => DFlipFlop:R1C.clk
+Clock => DFlipFlop:R2C.clk
+Clock => DFlipFlop:R3C.clk
+Clock => DFlipFlop:R4C.clk
+Clock => DFlipFlop:R5C.clk
+Clock => DFlipFlop:R6C.clk
+Clock => DFlipFlop:R7C.clk
 Clock => DFlipFlop:RA.clk
 Clock => DFlipFlop:RG.clk
 Clock => DFlipFlop:DFFComp.clk
@@ -37,26 +37,26 @@ DIN[12] => MUX:MUXComp.DIN[12]
 DIN[13] => MUX:MUXComp.DIN[13]
 DIN[14] => MUX:MUXComp.DIN[14]
 DIN[15] => MUX:MUXComp.DIN[15]
-bus0[0] << MUX:MUXComp.m[0]
-bus0[1] << MUX:MUXComp.m[1]
-bus0[2] << MUX:MUXComp.m[2]
-bus0[3] << MUX:MUXComp.m[3]
-bus0[4] << MUX:MUXComp.m[4]
-bus0[5] << MUX:MUXComp.m[5]
-bus0[6] << MUX:MUXComp.m[6]
-bus0[7] << MUX:MUXComp.m[7]
-bus0[8] << MUX:MUXComp.m[8]
-bus0[9] << MUX:MUXComp.m[9]
-bus0[10] << MUX:MUXComp.m[10]
-bus0[11] << MUX:MUXComp.m[11]
-bus0[12] << MUX:MUXComp.m[12]
-bus0[13] << MUX:MUXComp.m[13]
-bus0[14] << MUX:MUXComp.m[14]
-bus0[15] << MUX:MUXComp.m[15]
-Done << FiniteStateMachine:FSMComp.Done
+bus0[0] <= MUX:MUXComp.m[0]
+bus0[1] <= MUX:MUXComp.m[1]
+bus0[2] <= MUX:MUXComp.m[2]
+bus0[3] <= MUX:MUXComp.m[3]
+bus0[4] <= MUX:MUXComp.m[4]
+bus0[5] <= MUX:MUXComp.m[5]
+bus0[6] <= MUX:MUXComp.m[6]
+bus0[7] <= MUX:MUXComp.m[7]
+bus0[8] <= MUX:MUXComp.m[8]
+bus0[9] <= MUX:MUXComp.m[9]
+bus0[10] <= MUX:MUXComp.m[10]
+bus0[11] <= MUX:MUXComp.m[11]
+bus0[12] <= MUX:MUXComp.m[12]
+bus0[13] <= MUX:MUXComp.m[13]
+bus0[14] <= MUX:MUXComp.m[14]
+bus0[15] <= MUX:MUXComp.m[15]
+Done <= FiniteStateMachine:FSMComp.Done
 
 
-|lab3|DFlipFlop:R0
+|lab3|DFlipFlop:R0C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK
@@ -123,7 +123,7 @@ q[14] <= internal_d[14].DB_MAX_OUTPUT_PORT_TYPE
 q[15] <= internal_d[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab3|DFlipFlop:R1
+|lab3|DFlipFlop:R1C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK
@@ -190,7 +190,7 @@ q[14] <= internal_d[14].DB_MAX_OUTPUT_PORT_TYPE
 q[15] <= internal_d[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab3|DFlipFlop:R2
+|lab3|DFlipFlop:R2C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK
@@ -257,7 +257,7 @@ q[14] <= internal_d[14].DB_MAX_OUTPUT_PORT_TYPE
 q[15] <= internal_d[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab3|DFlipFlop:R3
+|lab3|DFlipFlop:R3C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK
@@ -324,7 +324,7 @@ q[14] <= internal_d[14].DB_MAX_OUTPUT_PORT_TYPE
 q[15] <= internal_d[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab3|DFlipFlop:R4
+|lab3|DFlipFlop:R4C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK
@@ -391,7 +391,7 @@ q[14] <= internal_d[14].DB_MAX_OUTPUT_PORT_TYPE
 q[15] <= internal_d[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab3|DFlipFlop:R5
+|lab3|DFlipFlop:R5C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK
@@ -458,7 +458,7 @@ q[14] <= internal_d[14].DB_MAX_OUTPUT_PORT_TYPE
 q[15] <= internal_d[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab3|DFlipFlop:R6
+|lab3|DFlipFlop:R6C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK
@@ -525,7 +525,7 @@ q[14] <= internal_d[14].DB_MAX_OUTPUT_PORT_TYPE
 q[15] <= internal_d[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab3|DFlipFlop:R7
+|lab3|DFlipFlop:R7C
 clk => internal_d[0].CLK
 clk => internal_d[1].CLK
 clk => internal_d[2].CLK

@@ -1,0 +1,185 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oneX[0]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[6]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[7]",
+					"strict" : false
+				},
+				{
+					"name" : "oneX[8]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[1]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[6]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[7]",
+					"strict" : false
+				},
+				{
+					"name" : "twoX[8]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[0]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[1]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[6]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[7]",
+					"strict" : false
+				},
+				{
+					"name" : "negOneX[8]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[1]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[6]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[7]",
+					"strict" : false
+				},
+				{
+					"name" : "negTwoX[8]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "loadreg",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[1]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[2]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[3]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[4]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[5]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[6]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplicand[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

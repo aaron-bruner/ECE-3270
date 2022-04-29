@@ -5,6 +5,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all; -- Permits unsigned()
 
 ENTITY REG1 IS
     GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
@@ -27,7 +28,7 @@ ARCHITECTURE mixed OF REG1 IS
     --However, this is omitted here so you can figure it out!
     PROCESS(clk,loadreg,multiplicand)
         BEGIN
-        IF (RISING_EDGE(clk) and not(loadreg)) THEN
+        IF (RISING_EDGE(clk) and loadreg = '1') THEN --not(loadreg)) THEN
             --internal_d <= d;
 				
 				oneX(b-1 DOWNTO 0) <= multiplicand;
@@ -37,10 +38,10 @@ ARCHITECTURE mixed OF REG1 IS
 				twoX(0) <= '0';							-- << 1 (LEFT SHIFT == MULT BY TWO)
 				
 				temp <= not multiplicand;
-				negOneX(b-1 DOWNTO 0) <= STD_LOGIC_VECTOR(unsigned(temp + 1)); -- Two's Complement (Source below)
+				negOneX(b-1 DOWNTO 0) <= STD_LOGIC_VECTOR(unsigned(temp) + 1); -- Two's Complement (Source below)
 				negOneX(b) <= multiplicand(b-1);		-- SIGN EXTEND
 				
-				negTwoX(b DOWNTO 1) <= STD_LOGIC_VECTOR(unsigned(temp + 1));
+				negTwoX(b DOWNTO 1) <= STD_LOGIC_VECTOR(unsigned(temp) + 1);
 				negTwoX(0) <= '0';
 
 				

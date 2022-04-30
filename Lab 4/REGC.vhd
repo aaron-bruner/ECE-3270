@@ -1,0 +1,52 @@
+-- REGC - Lab 4 (Bit-Pair Recoded Multiplier)
+-- Aaron Bruner
+-- C16480080
+
+-- The purpose OF REGC is to perform the partial product. Meaning, we will either perform 1x, 2x, -1x or -2x
+-- to our partial product. These values are coming from REGA and are applied to the value in REGC. Then, the
+-- partial product is shifted two bits to the right which goes into REGB.
+
+-- So, 
+
+LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;
+USE ieee.STD_LOGIC_unsigned.all;
+
+ENTITY REGC IS
+    GENERIC(b : INTEGER := 8);
+    PORT( clk,loadreg,shiftreg,add : IN  STD_LOGIC;
+			 REGC 					 	  : IN  STD_LOGIC_VECTOR(b DOWNTO 0);	-- The partial product of our additions
+
+			 REGCout					  	  : OUT STD_LOGIC_VECTOR(b DOWNTO 0); 	-- Result from adding what we currently have in REGC & either 1x, 2x, -1x or -2x
+			 REGB							  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);  -- Two LSB that are sent to REGB
+			 finalProduct			 	  : OUT STD_LOGIC_VECTOR(b-1 DOWNTO 0);-- After 4 ADD/SHIFT operations this will be the lower 8 bits of our result
+END REGC;
+--Begin the architecture, why is it called mixed?
+ARCHITECTURE mixed OF REGB IS
+	--SIGNAL internal_d: STD_LOGIC_VECTOR(b-1 DOWNTO 0);							    (others => '0') fills all unassigned positions with 0's
+	SIGNAL REGCout_signal : STD_LOGIC_VECTOR(b DOWNTO 0) := (others => '0'); -- When loadreg = 1 then we have not put anything in REGC yet / so all 0's
+	SIGNAL toREGB	 		 : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
+
+	BEGIN
+    --You should expect a comment explaining the process in your own code.
+    --However, this is omitted here so you can figure it out!
+    PROCESS(clk,loadreg,shiftreg,add)
+		BEGIN
+		 IF(RISING_EDGE(clk)) THEN
+			  IF(loadreg = '1') THEN
+					REGCout_signal <= REGC; -- Output input
+			  ELSIF shiftreg = '1' THEN
+					REGCout_signal <= REGCout_signal(b) & REGCout_signal(b) & REGCout_signal(b DOWNTO 2);
+					-- The line above shifts the entire signal over two bits but remembering to sign extend with whatever the MSB is
+					-- EX. REGCout_signal = "11001100" | AFTER SHIFT REGCout_signal = "11110011"
+			  ELSIF add = '1' THEN
+					REGCout_signal <= REGC;					-- ADD
+					toREGB			<= REGC(1 DOWNTO 0);	-- SHIFT		  
+			 END IF;
+		 END IF;
+	 END PROCESS;
+	 -- Why is this not in process? Because it needs to update no matter what. These values are constantly changing 
+	REGB 	  <= toREGB;
+	REGCout <= REGCout_signal;
+	finalProduct <= REGCout_signal(b-1 DOWNTO 0);
+END mixed;

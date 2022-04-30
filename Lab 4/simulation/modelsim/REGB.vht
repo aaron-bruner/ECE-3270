@@ -18,9 +18,9 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "04/29/2022 13:40:53"
+-- Generated on "04/30/2022 09:55:24"
                                                             
--- Vhdl Test Bench template for design  :  REG1
+-- Vhdl Test Bench template for design  :  REGB
 -- 
 -- Simulation tool : ModelSim-Altera (VHDL)
 -- 
@@ -28,40 +28,40 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY REG1_vhd_tst IS
-END REG1_vhd_tst;
-ARCHITECTURE REG1_arch OF REG1_vhd_tst IS
+ENTITY REGB_vhd_tst IS
+END REGB_vhd_tst;
+ARCHITECTURE REGB_arch OF REGB_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
+SIGNAL finalProduct : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL loadreg : STD_LOGIC;
-SIGNAL multiplicand : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL negOneX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL negTwoX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL oneX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL twoX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-COMPONENT REG1
+SIGNAL multiplier : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL recodeOperation : STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL REGC : STD_LOGIC_VECTOR(1 DOWNTO 0);
+SIGNAL shiftreg : STD_LOGIC;
+COMPONENT REGB
 	PORT (
 	clk : IN STD_LOGIC;
+	finalProduct : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	loadreg : IN STD_LOGIC;
-	multiplicand : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	negOneX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	negTwoX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	oneX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	twoX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
+	multiplier : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	recodeOperation : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+	REGC : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+	shiftreg : IN STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
-	i1 : REG1
+	i1 : REGB
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
+	finalProduct => finalProduct,
 	loadreg => loadreg,
-	multiplicand => multiplicand,
-	negOneX => negOneX,
-	negTwoX => negTwoX,
-	oneX => oneX,
-	twoX => twoX
+	multiplier => multiplier,
+	recodeOperation => recodeOperation,
+	REGC => REGC,
+	shiftreg => shiftreg
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -75,6 +75,23 @@ always : PROCESS
 -- variable declarations                                      
 BEGIN                                                         
         -- code executes for every event on sensitivity list  
+		  clk <= '0';
+		  REGC <= "11";
+		  multiplier <= "00110011";
+		  loadreg <= '1';
+		  shiftreg <= '0';
+		  wait for 10ns;
+		  clk <= '1';
+		  wait for 10ns;
+		  clk <= '0';
+		  loadreg <= '0';
+		  shiftreg <= '1';
+		  clk <= '1';
+		  wait for 10ns;
+		  clk <= '0';
+		  wait for 10ns;
+		  clk <= '1';
+		  wait for 10ns;
 WAIT;                                                        
 END PROCESS always;                                          
-END REG1_arch;
+END REGB_arch;

@@ -28,9 +28,9 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY REG1_vhd_tst IS
-END REG1_vhd_tst;
-ARCHITECTURE REG1_arch OF REG1_vhd_tst IS
+ENTITY REGA_vhd_tst IS
+END REGA_vhd_tst;
+ARCHITECTURE REGA_arch OF REGA_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
@@ -40,7 +40,7 @@ SIGNAL negOneX : STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL negTwoX : STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL oneX : STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL twoX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-COMPONENT REG1
+COMPONENT REGA
 	PORT (
 	clk : IN STD_LOGIC;
 	loadreg : IN STD_LOGIC;
@@ -52,7 +52,7 @@ COMPONENT REG1
 	);
 END COMPONENT;
 BEGIN
-	i1 : REG1
+	i1 : REGA
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
@@ -86,4 +86,4 @@ BEGIN
 		  wait for 10ns;
 WAIT;                                                        
 END PROCESS always;                                          
-END REG1_arch;
+END REGA_arch;

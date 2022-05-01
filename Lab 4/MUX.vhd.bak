@@ -1,0 +1,44 @@
+-- MUX - Lab 4 (Bit-Pair Recoded Multiplier [5-to-1 Multiplexer])
+-- Aaron Bruner
+-- C16480080
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+
+ENTITY MUX IS
+    GENERIC (size : INTEGER := 16); -- Constant integer so we can change data-width with ease
+    PORT( R0 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 R1 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 R2 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 R3 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 R4 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 R5 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0); -- 10 Inputs
+			 R6 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 R7 	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 DIN	: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 G		: IN  STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+			 
+			 S		: IN  STD_LOGIC_VECTOR(9 	 DOWNTO 0); 	-- Select
+			 m		: OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)	-- Output
+			);
+end MUX;
+
+ARCHITECTURE main OF MUX IS
+	BEGIN
+		WITH S SELECT						-- This D-Latch allows us to select the specific register we want output with select
+			m <= R0  WHEN "0000000001",
+				  R1  WHEN "0000000010",
+              R2  WHEN "0000000100",
+              R3  WHEN "0000001000",
+              R4  WHEN "0000010000",
+              R5  WHEN "0000100000",
+				  R6  WHEN "0001000000",
+				  R7  WHEN "0010000000",
+				  G   WHEN "0100000000",
+				  DIN WHEN "1000000000",
+				  DIN WHEN OTHERS;
+END main;
+
+-- Here is a great example that demonstrates this model we are using:
+-- https://surf-vhdl.com/how-to-implement-digital-mux-in-vhdl/

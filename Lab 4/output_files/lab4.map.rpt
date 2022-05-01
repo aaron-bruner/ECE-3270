@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Fri Apr 29 14:06:32 2022
+Sun May 01 14:54:07 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,12 +13,11 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |REG1
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Parameter Settings for User Entity Instance: Top-level Entity: |ADD
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Apr 29 14:06:32 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sun May 01 14:54:07 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; lab4                                        ;
-; Top-level Entity Name              ; REG1                                        ;
+; Top-level Entity Name              ; ADD                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 42                                          ;
-;     Total combinational functions  ; 16                                          ;
-;     Dedicated logic registers      ; 42                                          ;
-; Total registers                    ; 42                                          ;
-; Total pins                         ; 46                                          ;
+; Total logic elements               ; 8                                           ;
+;     Total combinational functions  ; 8                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 24                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -70,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C6GES   ;                    ;
-; Top-level entity name                                            ; REG1               ; lab4               ;
+; Top-level entity name                                            ; ADD                ; lab4               ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -159,53 +158,52 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                             ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path      ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
-; REG1.vhd                         ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/REG1.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                            ;
++----------------------------------+-----------------+-----------------+----------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path     ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------+---------+
+; ADD.vhd                          ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/ADD.vhd ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 42        ;
-;                                             ;           ;
-; Total combinational functions               ; 16        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 0         ;
-;     -- 3 input functions                    ; 0         ;
-;     -- <=2 input functions                  ; 16        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 9         ;
-;     -- arithmetic mode                      ; 7         ;
-;                                             ;           ;
-; Total registers                             ; 42        ;
-;     -- Dedicated logic registers            ; 42        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 46        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 42        ;
-; Total fan-out                               ; 229       ;
-; Average fan-out                             ; 1.53      ;
-+---------------------------------------------+-----------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimated Total logic elements              ; 8      ;
+;                                             ;        ;
+; Total combinational functions               ; 8      ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 0      ;
+;     -- 3 input functions                    ; 7      ;
+;     -- <=2 input functions                  ; 1      ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 1      ;
+;     -- arithmetic mode                      ; 7      ;
+;                                             ;        ;
+; Total registers                             ; 0      ;
+;     -- Dedicated logic registers            ; 0      ;
+;     -- I/O registers                        ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 24     ;
+;                                             ;        ;
+; Embedded Multiplier 9-bit elements          ; 0      ;
+;                                             ;        ;
+; Maximum fan-out node                        ; Add0~0 ;
+; Maximum fan-out                             ; 2      ;
+; Total fan-out                               ; 55     ;
+; Average fan-out                             ; 0.98   ;
++---------------------------------------------+--------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -213,20 +211,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |REG1                      ; 16 (16)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 46   ; 0            ; 0          ; |REG1               ; REG1        ; work         ;
+; |ADD                       ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 24   ; 0            ; 0          ; |ADD                ; ADD         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; negTwoX[0]~reg0                       ; Stuck at GND due to stuck port data_in ;
-; twoX[0]~reg0                          ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 2 ;                                        ;
-+---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -234,23 +221,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 42    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 42    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |REG1 ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; b              ; 8     ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |ADD ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; x              ; 8     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -259,18 +246,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 46                          ;
-; cycloneiii_ff         ; 42                          ;
-;     ENA               ; 42                          ;
-; cycloneiii_lcell_comb ; 17                          ;
+; boundary_port         ; 24                          ;
+; cycloneiii_lcell_comb ; 8                           ;
 ;     arith             ; 7                           ;
-;         2 data inputs ; 7                           ;
-;     normal            ; 10                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 9                           ;
+;         3 data inputs ; 7                           ;
+;     normal            ; 1                           ;
+;         2 data inputs ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 1.70                        ;
-; Average LUT depth     ; 0.65                        ;
+; Average LUT depth     ; 1.43                        ;
 +-----------------------+-----------------------------+
 
 
@@ -289,27 +273,48 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Apr 29 14:06:25 2022
+    Info: Processing started: Sun May 01 14:54:00 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file reg1.vhd
-    Info (12022): Found design unit 1: REG1-mixed File: N:/GitHub/ECE-3270/Lab 4/REG1.vhd Line: 22
-    Info (12023): Found entity 1: REG1 File: N:/GitHub/ECE-3270/Lab 4/REG1.vhd Line: 10
-Info (12127): Elaborating entity "REG1" for the top level hierarchy
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "twoX[0]" is stuck at GND File: N:/GitHub/ECE-3270/Lab 4/REG1.vhd Line: 31
-    Warning (13410): Pin "negTwoX[0]" is stuck at GND File: N:/GitHub/ECE-3270/Lab 4/REG1.vhd Line: 31
-Info (286030): Timing-Driven Synthesis is running
+Info (12021): Found 2 design units, including 1 entities, in source file head.vhd
+    Info (12022): Found design unit 1: HEAD-mixed File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 18
+    Info (12023): Found entity 1: HEAD File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file rega.vhd
+    Info (12022): Found design unit 1: REGA-mixed File: N:/GitHub/ECE-3270/Lab 4/REGA.vhd Line: 24
+    Info (12023): Found entity 1: REGA File: N:/GitHub/ECE-3270/Lab 4/REGA.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file regb.vhd
+    Info (12022): Found design unit 1: REGB-mixed File: N:/GitHub/ECE-3270/Lab 4/REGB.vhd Line: 29
+    Info (12023): Found entity 1: REGB File: N:/GitHub/ECE-3270/Lab 4/REGB.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file regc.vhd
+    Info (12022): Found design unit 1: REGC-mixed File: N:/GitHub/ECE-3270/Lab 4/REGC.vhd Line: 23
+    Info (12023): Found entity 1: REGC File: N:/GitHub/ECE-3270/Lab 4/REGC.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file regd.vhd
+    Info (12022): Found design unit 1: REGD-mixed File: N:/GitHub/ECE-3270/Lab 4/REGD.vhd Line: 18
+    Info (12023): Found entity 1: REGD File: N:/GitHub/ECE-3270/Lab 4/REGD.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file fsm.vhd
+    Info (12022): Found design unit 1: FSM-mixed File: N:/GitHub/ECE-3270/Lab 4/FSM.vhd Line: 14
+    Info (12023): Found entity 1: FSM File: N:/GitHub/ECE-3270/Lab 4/FSM.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file add.vhd
+    Info (12022): Found design unit 1: ADD-main File: N:/GitHub/ECE-3270/Lab 4/ADD.vhd Line: 18
+    Info (12023): Found entity 1: ADD File: N:/GitHub/ECE-3270/Lab 4/ADD.vhd Line: 9
+Warning (12090): Entity "MUX" obtained from "MUX.vhd" instead of from Quartus Prime megafunction library File: N:/GitHub/ECE-3270/Lab 4/MUX.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
+    Info (12022): Found design unit 1: MUX-main File: N:/GitHub/ECE-3270/Lab 4/MUX.vhd Line: 21
+    Info (12023): Found entity 1: MUX File: N:/GitHub/ECE-3270/Lab 4/MUX.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file smallmux.vhd
+    Info (12022): Found design unit 1: smallMUX-main File: N:/GitHub/ECE-3270/Lab 4/smallMUX.vhd Line: 19
+    Info (12023): Found entity 1: smallMUX File: N:/GitHub/ECE-3270/Lab 4/smallMUX.vhd Line: 9
+Info (12127): Elaborating entity "ADD" for the top level hierarchy
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 96 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 50 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4775 megabytes
-    Info: Processing ended: Fri Apr 29 14:06:32 2022
+Info (21057): Implemented 32 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 16 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 8 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4786 megabytes
+    Info: Processing ended: Sun May 01 14:54:07 2022
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:18
 

@@ -10,48 +10,44 @@
 # Copying G:/Applications/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {N:/GitHub/ECE-3270/Lab 4/REG1.vhd}
+# vcom -93 -work work {N:/GitHub/ECE-3270/Lab 4/ADD.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:06:51 on Apr 29,2022
-# vcom -reportprogress 300 -93 -work work N:/GitHub/ECE-3270/Lab 4/REG1.vhd 
+# Start time: 14:54:27 on May 01,2022
+# vcom -reportprogress 300 -93 -work work N:/GitHub/ECE-3270/Lab 4/ADD.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package std_logic_arith
 # -- Loading package STD_LOGIC_UNSIGNED
-# -- Loading package NUMERIC_STD
-# -- Compiling entity REG1
-# -- Compiling architecture mixed of REG1
-# End time: 14:06:51 on Apr 29,2022, Elapsed time: 0:00:00
+# -- Compiling entity ADD
+# -- Compiling architecture main of ADD
+# End time: 14:54:27 on May 01,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht}
+# vcom -93 -work work {N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:06:52 on Apr 29,2022
-# vcom -reportprogress 300 -93 -work work N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht 
+# Start time: 14:54:27 on May 01,2022
+# vcom -reportprogress 300 -93 -work work N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity REG1_vhd_tst
-# -- Compiling architecture REG1_arch of REG1_vhd_tst
-# ** Warning: N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht(80): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht(82): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht(84): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht(86): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 14:06:52 on Apr 29,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 4
+# -- Compiling entity ADD_vhd_tst
+# -- Compiling architecture ADD_arch of ADD_vhd_tst
+# ** Warning: N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht(68): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht(72): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 14:54:27 on May 01,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  REG1_vhd_tst
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" REG1_vhd_tst 
-# Start time: 14:06:52 on Apr 29,2022
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  ADD_vhd_tst
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" ADD_vhd_tst 
+# Start time: 14:54:27 on May 01,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.reg1_vhd_tst(reg1_arch)
+# Loading work.add_vhd_tst(add_arch)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading ieee.numeric_std(body)
-# Loading work.reg1(mixed)
+# Loading work.add(main)
 # 
 # add wave *
 # view structure
@@ -59,5 +55,9 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# End time: 14:07:02 on Apr 29,2022, Elapsed time: 0:00:10
-# Errors: 0, Warnings: 0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /add_vhd_tst/i1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /add_vhd_tst/i1
+# End time: 14:54:33 on May 01,2022, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 2

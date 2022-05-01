@@ -18,7 +18,7 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "04/30/2022 09:55:24"
+-- Generated on "05/01/2022 08:41:54"
                                                             
 -- Vhdl Test Bench template for design  :  REGB
 -- 
@@ -74,7 +74,7 @@ always : PROCESS
 -- (        )                                                 
 -- variable declarations                                      
 BEGIN                                                         
-        -- code executes for every event on sensitivity list  
+        -- code executes for every event on sensitivity list 
 		  clk <= '0';
 		  REGC <= "11";
 		  multiplier <= "00110011";
@@ -91,7 +91,7 @@ BEGIN
 		  clk <= '0';
 		  wait for 10ns;
 		  clk <= '1';
-		  wait for 10ns;
+		  wait for 10ns; 
 WAIT;                                                        
 END PROCESS always;                                          
 END REGB_arch;

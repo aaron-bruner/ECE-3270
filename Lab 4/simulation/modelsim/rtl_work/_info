@@ -9,91 +9,89 @@ z2
 !i10f 100
 cModel Technology
 Z0 dN:/GitHub/ECE-3270/Lab 4/simulation/modelsim
-Ereg1
-Z1 w1651255561
-Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Eadd
+Z1 w1651431084
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 !i122 0
 R0
-Z7 8N:/GitHub/ECE-3270/Lab 4/REG1.vhd
-Z8 FN:/GitHub/ECE-3270/Lab 4/REG1.vhd
+Z6 8N:/GitHub/ECE-3270/Lab 4/ADD.vhd
+Z7 FN:/GitHub/ECE-3270/Lab 4/ADD.vhd
 l0
-L10 1
-V<4Z80Y=8bkjKGVe:1SFdk1
-!s100 VNR8YWN:=jQhm]<ncikQ22
-Z9 OV;C;2020.1;71
+L9 1
+VAQlKg@j1:a^bE<jGJ4AW<1
+!s100 FFbYV6O7nZ2LWSCn4279f3
+Z8 OV;C;2020.1;71
 31
-Z10 !s110 1651255611
+Z9 !s110 1651431267
 !i10b 1
-Z11 !s108 1651255611.000000
-Z12 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 4/REG1.vhd|
-Z13 !s107 N:/GitHub/ECE-3270/Lab 4/REG1.vhd|
+Z10 !s108 1651431267.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 4/ADD.vhd|
+Z12 !s107 N:/GitHub/ECE-3270/Lab 4/ADD.vhd|
 !i113 1
-Z14 o-93 -work work
-Z15 tExplicit 1 CvgOpt 0
-Amixed
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
+Amain
 R2
 R3
 R4
 R5
-R6
-DEx4 work 4 reg1 0 22 <4Z80Y=8bkjKGVe:1SFdk1
+DEx4 work 3 add 0 22 AQlKg@j1:a^bE<jGJ4AW<1
 !i122 0
-l26
-L22 31
-VE:TL:Oz9EKND<NaaXiRfz0
-!s100 GMe_Ac0gH4@8fB_KU5]QA2
-R9
+l20
+L18 7
+V8[mo?99fVz[NJN:1606kG1
+!s100 [ADDeOgY>L3lTI>7ThDa01
+R8
 31
-R10
+R9
 !i10b 1
+R10
 R11
 R12
-R13
 !i113 1
+R13
 R14
-R15
-Ereg1_vhd_tst
-Z16 w1651254353
+Eadd_vhd_tst
+Z15 w1651431146
+R4
 R5
-R6
 !i122 1
 R0
-Z17 8N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht
-Z18 FN:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht
+Z16 8N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht
+Z17 FN:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht
 l0
 L31 1
-V3o=iCE8g6=4L3C5iWgFLS2
-!s100 Y52=YBHDMBOO4@D`_a`2o3
-R9
+VQKAU>V;NWKPgW[=RdTB6I0
+!s100 A>TnoIiAYMUiISgL=he[Q0
+R8
 31
-Z19 !s110 1651255612
+R9
 !i10b 1
-Z20 !s108 1651255612.000000
-Z21 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht|
-!s107 N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht|
+R10
+Z18 !s90 -reportprogress|300|-93|-work|work|N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht|
+!s107 N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht|
 !i113 1
+R13
 R14
-R15
-Areg1_arch
+Aadd_arch
+R4
 R5
-R6
-DEx4 work 12 reg1_vhd_tst 0 22 3o=iCE8g6=4L3C5iWgFLS2
+DEx4 work 11 add_vhd_tst 0 22 QKAU>V;NWKPgW[=RdTB6I0
 !i122 1
-l54
-L33 57
-VT@4<<[>5ZP^>a1R`>ojK=1
-!s100 NgjLU37140k8deY;:7Jci1
-R9
+l46
+L33 45
+VBe6_aen>a^;Hke<bLLPCf1
+!s100 D8Xk8PFVzfz=]TGoz9DjN1
+R8
 31
-R19
+R9
 !i10b 1
-R20
-R21
-Z22 !s107 N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/REG1.vht|
+R10
+R18
+Z19 !s107 N:/GitHub/ECE-3270/Lab 4/simulation/modelsim/ADD.vht|
 !i113 1
+R13
 R14
-R15

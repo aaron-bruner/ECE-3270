@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Apr 29 14:06:32 2022
+Analysis & Synthesis Status : Successful - Sun May 01 14:54:07 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : lab4
-Top-level Entity Name : REG1
+Top-level Entity Name : ADD
 Family : MAX 10
-Total logic elements : 42
-    Total combinational functions : 16
-    Dedicated logic registers : 42
-Total registers : 42
-Total pins : 46
+Total logic elements : 8
+    Total combinational functions : 8
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 24
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

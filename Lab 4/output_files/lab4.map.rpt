@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Sun May 01 14:54:07 2022
+Sun May 01 18:46:09 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,11 +13,22 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |ADD
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. State Machine - |HEAD|FSM:MealyFSM|state
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |HEAD
+ 14. Parameter Settings for User Entity Instance: REGA:registerA
+ 15. Parameter Settings for User Entity Instance: REGD:registerD
+ 16. Parameter Settings for User Entity Instance: REGB:registerB
+ 17. Parameter Settings for User Entity Instance: REGC:registerC
+ 18. Parameter Settings for User Entity Instance: smallMUX:miniMUX
+ 19. Parameter Settings for User Entity Instance: ADD:Adder
+ 20. Parameter Settings for User Entity Instance: MUX:multiplexer
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +55,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 01 14:54:07 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sun May 01 18:46:09 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; lab4                                        ;
-; Top-level Entity Name              ; ADD                                         ;
+; Top-level Entity Name              ; HEAD                                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 8                                           ;
-;     Total combinational functions  ; 8                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 24                                          ;
+; Total logic elements               ; 157                                         ;
+;     Total combinational functions  ; 156                                         ;
+;     Dedicated logic registers      ; 58                                          ;
+; Total registers                    ; 58                                          ;
+; Total pins                         ; 37                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -69,7 +80,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C6GES   ;                    ;
-; Top-level entity name                                            ; ADD                ; lab4               ;
+; Top-level entity name                                            ; HEAD               ; lab4               ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -158,62 +169,104 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                            ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path     ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
-; ADD.vhd                          ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/ADD.vhd ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                 ;
++----------------------------------+-----------------+-----------------+---------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path          ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------+---------+
+; HEAD.vhd                         ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/HEAD.vhd     ;         ;
+; REGA.vhd                         ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/REGA.vhd     ;         ;
+; REGB.vhd                         ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/REGB.vhd     ;         ;
+; REGC.vhd                         ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/REGC.vhd     ;         ;
+; REGD.vhd                         ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/REGD.vhd     ;         ;
+; FSM.vhd                          ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/FSM.vhd      ;         ;
+; ADD.vhd                          ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/ADD.vhd      ;         ;
+; MUX.vhd                          ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/MUX.vhd      ;         ;
+; smallMUX.vhd                     ; yes             ; User VHDL File  ; N:/GitHub/ECE-3270/Lab 4/smallMUX.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Estimated Total logic elements              ; 8      ;
-;                                             ;        ;
-; Total combinational functions               ; 8      ;
-; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 0      ;
-;     -- 3 input functions                    ; 7      ;
-;     -- <=2 input functions                  ; 1      ;
-;                                             ;        ;
-; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 1      ;
-;     -- arithmetic mode                      ; 7      ;
-;                                             ;        ;
-; Total registers                             ; 0      ;
-;     -- Dedicated logic registers            ; 0      ;
-;     -- I/O registers                        ; 0      ;
-;                                             ;        ;
-; I/O pins                                    ; 24     ;
-;                                             ;        ;
-; Embedded Multiplier 9-bit elements          ; 0      ;
-;                                             ;        ;
-; Maximum fan-out node                        ; Add0~0 ;
-; Maximum fan-out                             ; 2      ;
-; Total fan-out                               ; 55     ;
-; Average fan-out                             ; 0.98   ;
-+---------------------------------------------+--------+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                ;
++---------------------------------------------+------------------------------+
+; Resource                                    ; Usage                        ;
++---------------------------------------------+------------------------------+
+; Estimated Total logic elements              ; 157                          ;
+;                                             ;                              ;
+; Total combinational functions               ; 156                          ;
+; Logic element usage by number of LUT inputs ;                              ;
+;     -- 4 input functions                    ; 29                           ;
+;     -- 3 input functions                    ; 32                           ;
+;     -- <=2 input functions                  ; 95                           ;
+;                                             ;                              ;
+; Logic elements by mode                      ;                              ;
+;     -- normal mode                          ; 102                          ;
+;     -- arithmetic mode                      ; 54                           ;
+;                                             ;                              ;
+; Total registers                             ; 58                           ;
+;     -- Dedicated logic registers            ; 58                           ;
+;     -- I/O registers                        ; 0                            ;
+;                                             ;                              ;
+; I/O pins                                    ; 37                           ;
+;                                             ;                              ;
+; Embedded Multiplier 9-bit elements          ; 0                            ;
+;                                             ;                              ;
+; Maximum fan-out node                        ; FSM:MealyFSM|state.loadState ;
+; Maximum fan-out                             ; 59                           ;
+; Total fan-out                               ; 635                          ;
+; Average fan-out                             ; 2.20                         ;
++---------------------------------------------+------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |ADD                       ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 24   ; 0            ; 0          ; |ADD                ; ADD         ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name    ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------+-------------+--------------+
+; |HEAD                      ; 156 (0)             ; 58 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 37   ; 0            ; 0          ; |HEAD                  ; HEAD        ; work         ;
+;    |ADD:Adder|             ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|ADD:Adder        ; ADD         ; work         ;
+;    |FSM:MealyFSM|          ; 5 (5)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|FSM:MealyFSM     ; FSM         ; work         ;
+;    |MUX:multiplexer|       ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|MUX:multiplexer  ; MUX         ; work         ;
+;    |REGA:registerA|        ; 23 (23)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|REGA:registerA   ; REGA        ; work         ;
+;    |REGB:registerB|        ; 10 (10)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|REGB:registerB   ; REGB        ; work         ;
+;    |REGC:registerC|        ; 10 (10)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|REGC:registerC   ; REGC        ; work         ;
+;    |REGD:registerD|        ; 76 (76)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|REGD:registerD   ; REGD        ; work         ;
+;    |smallMUX:miniMUX|      ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |HEAD|smallMUX:miniMUX ; smallMUX    ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------+
+; State Machine - |HEAD|FSM:MealyFSM|state                                                                   ;
++------------------+-----------------+------------------+----------------+-----------------+-----------------+
+; Name             ; state.doneState ; state.shiftState ; state.addState ; state.loadState ; state.waitState ;
++------------------+-----------------+------------------+----------------+-----------------+-----------------+
+; state.waitState  ; 0               ; 0                ; 0              ; 0               ; 0               ;
+; state.loadState  ; 0               ; 0                ; 0              ; 1               ; 1               ;
+; state.addState   ; 0               ; 0                ; 1              ; 0               ; 1               ;
+; state.shiftState ; 0               ; 1                ; 0              ; 0               ; 1               ;
+; state.doneState  ; 1               ; 0                ; 0              ; 0               ; 1               ;
++------------------+-----------------+------------------+----------------+-----------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                         ;
++----------------------------------------------------+-------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal           ; Free of Timing Hazards ;
++----------------------------------------------------+-------------------------------+------------------------+
+; FSM:MealyFSM|done                                  ; FSM:MealyFSM|state.shiftState ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                               ;                        ;
++----------------------------------------------------+-------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -221,23 +274,148 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 58    ;
+; Number of registers using Synchronous Clear  ; 10    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 5     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 50    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |ADD ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; x              ; 8     ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; REGD:registerD|x[1]                     ; 2       ;
+; REGD:registerD|x[2]                     ; 2       ;
+; REGD:registerD|x[3]                     ; 2       ;
+; REGD:registerD|x[0]                     ; 2       ;
+; REGD:registerD|x[4]                     ; 2       ;
+; REGD:registerD|x[5]                     ; 2       ;
+; REGD:registerD|x[6]                     ; 2       ;
+; REGD:registerD|x[7]                     ; 2       ;
+; REGD:registerD|x[8]                     ; 2       ;
+; REGD:registerD|x[9]                     ; 2       ;
+; REGD:registerD|x[10]                    ; 2       ;
+; REGD:registerD|x[11]                    ; 2       ;
+; REGD:registerD|x[12]                    ; 2       ;
+; REGD:registerD|x[13]                    ; 2       ;
+; REGD:registerD|x[14]                    ; 2       ;
+; REGD:registerD|x[15]                    ; 2       ;
+; REGD:registerD|x[16]                    ; 2       ;
+; REGD:registerD|x[17]                    ; 2       ;
+; REGD:registerD|x[18]                    ; 2       ;
+; REGD:registerD|x[19]                    ; 2       ;
+; REGD:registerD|x[20]                    ; 2       ;
+; REGD:registerD|x[21]                    ; 2       ;
+; REGD:registerD|x[22]                    ; 2       ;
+; REGD:registerD|x[23]                    ; 2       ;
+; REGD:registerD|x[24]                    ; 2       ;
+; REGD:registerD|x[25]                    ; 2       ;
+; REGD:registerD|x[26]                    ; 2       ;
+; REGD:registerD|x[27]                    ; 2       ;
+; REGD:registerD|x[28]                    ; 2       ;
+; REGD:registerD|x[29]                    ; 2       ;
+; REGD:registerD|x[30]                    ; 2       ;
+; REGD:registerD|x[31]                    ; 2       ;
+; Total number of inverted registers = 32 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |HEAD|REGB:registerB|REGBdata[7]       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |HEAD|REGC:registerC|REGCout_signal[0] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |HEAD|REGC:registerC|REGCout_signal[6] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |HEAD|REGD:registerD|x[30]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; No         ; |HEAD|MUX:multiplexer|Mux1             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |HEAD ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; b              ; 8     ; Signed Integer                              ;
+; x              ; 8     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: REGA:registerA ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; b              ; 8     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: REGD:registerD ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; b              ; 8     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: REGB:registerB ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; b              ; 8     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: REGC:registerC ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; b              ; 8     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: smallMUX:miniMUX ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; b              ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ADD:Adder ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; x              ; 8     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX:multiplexer ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; b              ; 8     ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -246,15 +424,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 24                          ;
-; cycloneiii_lcell_comb ; 8                           ;
-;     arith             ; 7                           ;
-;         3 data inputs ; 7                           ;
-;     normal            ; 1                           ;
-;         2 data inputs ; 1                           ;
+; boundary_port         ; 37                          ;
+; cycloneiii_ff         ; 58                          ;
+;     CLR               ; 5                           ;
+;     ENA               ; 42                          ;
+;     ENA SCLR          ; 8                           ;
+;     SCLR              ; 2                           ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 156                         ;
+;     arith             ; 54                          ;
+;         2 data inputs ; 46                          ;
+;         3 data inputs ; 8                           ;
+;     normal            ; 102                         ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 46                          ;
+;         3 data inputs ; 24                          ;
+;         4 data inputs ; 29                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.70                        ;
-; Average LUT depth     ; 1.43                        ;
+; Max LUT depth         ; 6.70                        ;
+; Average LUT depth     ; 4.07                        ;
 +-----------------------+-----------------------------+
 
 
@@ -273,7 +461,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun May 01 14:54:00 2022
+    Info: Processing started: Sun May 01 18:46:01 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -305,17 +493,31 @@ Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file smallmux.vhd
     Info (12022): Found design unit 1: smallMUX-main File: N:/GitHub/ECE-3270/Lab 4/smallMUX.vhd Line: 19
     Info (12023): Found entity 1: smallMUX File: N:/GitHub/ECE-3270/Lab 4/smallMUX.vhd Line: 9
-Info (12127): Elaborating entity "ADD" for the top level hierarchy
+Info (12127): Elaborating entity "HEAD" for the top level hierarchy
+Info (12128): Elaborating entity "REGA" for hierarchy "REGA:registerA" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 104
+Warning (10492): VHDL Process Statement warning at REGA.vhd(42): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: N:/GitHub/ECE-3270/Lab 4/REGA.vhd Line: 42
+Info (12128): Elaborating entity "REGD" for hierarchy "REGD:registerD" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 115
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:MealyFSM" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 123
+Warning (10631): VHDL Process Statement warning at FSM.vhd(47): inferring latch(es) for signal or variable "done", which holds its previous value in one or more paths through the process File: N:/GitHub/ECE-3270/Lab 4/FSM.vhd Line: 47
+Info (10041): Inferred latch for "done" at FSM.vhd(47) File: N:/GitHub/ECE-3270/Lab 4/FSM.vhd Line: 47
+Info (12128): Elaborating entity "REGB" for hierarchy "REGB:registerB" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 136
+Info (12128): Elaborating entity "REGC" for hierarchy "REGC:registerC" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 147
+Info (12128): Elaborating entity "smallMUX" for hierarchy "smallMUX:miniMUX" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 159
+Warning (10540): VHDL Signal Declaration warning at smallMUX.vhd(20): used explicit default value for signal "zeroX" because signal was never assigned a value File: N:/GitHub/ECE-3270/Lab 4/smallMUX.vhd Line: 20
+Info (12128): Elaborating entity "ADD" for hierarchy "ADD:Adder" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 166
+Info (12128): Elaborating entity "MUX" for hierarchy "MUX:multiplexer" File: N:/GitHub/ECE-3270/Lab 4/HEAD.vhd Line: 173
+Warning (10540): VHDL Signal Declaration warning at MUX.vhd(22): used explicit default value for signal "zeroX" because signal was never assigned a value File: N:/GitHub/ECE-3270/Lab 4/MUX.vhd Line: 22
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 32 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 16 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 8 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4786 megabytes
-    Info: Processing ended: Sun May 01 14:54:07 2022
-    Info: Elapsed time: 00:00:07
+Info (21057): Implemented 194 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 18 output pins
+    Info (21061): Implemented 157 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Sun May 01 18:46:09 2022
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:18
 
 

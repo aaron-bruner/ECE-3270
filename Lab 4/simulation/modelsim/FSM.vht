@@ -18,9 +18,9 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "05/01/2022 12:58:57"
+-- Generated on "05/01/2022 18:37:37"
                                                             
--- Vhdl Test Bench template for design  :  MUX
+-- Vhdl Test Bench template for design  :  FSM
 -- 
 -- Simulation tool : ModelSim-Altera (VHDL)
 -- 
@@ -28,37 +28,49 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY MUX_vhd_tst IS
-END MUX_vhd_tst;
-ARCHITECTURE MUX_arch OF MUX_vhd_tst IS
+ENTITY FSM_vhd_tst IS
+END FSM_vhd_tst;
+ARCHITECTURE FSM_arch OF FSM_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL m : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL negOneX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL negTwoX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL oneX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL S : STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL twoX : STD_LOGIC_VECTOR(8 DOWNTO 0);
-COMPONENT MUX
+SIGNAL addreg : STD_LOGIC;
+SIGNAL busy : STD_LOGIC;
+SIGNAL clk : STD_LOGIC;
+SIGNAL count : STD_LOGIC;
+SIGNAL done : STD_LOGIC;
+SIGNAL loadreg : STD_LOGIC;
+SIGNAL regD : STD_LOGIC;
+SIGNAL reset : STD_LOGIC;
+SIGNAL shiftreg : STD_LOGIC;
+SIGNAL start : STD_LOGIC;
+COMPONENT FSM
 	PORT (
-	m : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	negOneX : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-	negTwoX : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-	oneX : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-	S : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-	twoX : IN STD_LOGIC_VECTOR(8 DOWNTO 0)
+	addreg : BUFFER STD_LOGIC;
+	busy : BUFFER STD_LOGIC;
+	clk : IN STD_LOGIC;
+	count : BUFFER STD_LOGIC;
+	done : BUFFER STD_LOGIC;
+	loadreg : BUFFER STD_LOGIC;
+	regD : IN STD_LOGIC;
+	reset : IN STD_LOGIC;
+	shiftreg : BUFFER STD_LOGIC;
+	start : IN STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
-	i1 : MUX
+	i1 : FSM
 	PORT MAP (
 -- list connections between master ports and signals
-	m => m,
-	negOneX => negOneX,
-	negTwoX => negTwoX,
-	oneX => oneX,
-	S => S,
-	twoX => twoX
+	addreg => addreg,
+	busy => busy,
+	clk => clk,
+	count => count,
+	done => done,
+	loadreg => loadreg,
+	regD => regD,
+	reset => reset,
+	shiftreg => shiftreg,
+	start => start
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -72,26 +84,20 @@ always : PROCESS
 -- variable declarations                                      
 BEGIN                                                         
         -- code executes for every event on sensitivity list  
-		  oneX 	 <= "001111100";
-		  twoX 	 <= "111000111";
-		  negOneX <= "100000001";
-		  negTwoX <= "011111110";
-		  S <= "000";
-		  wait for 5ns;	-- SHOULD SEE  0x
-		  S <= "001";
-		  wait for 5ns;	-- SHOULD SEE  1x
-		  S <= "010";
-		  wait for 5ns;	-- SHOULD SEE  1x
-		  S <= "011";
-		  wait for 5ns;	-- SHOULD SEE  2x
-		  S <= "100";
-		  wait for 5ns;	-- SHOULD SEE -2x
-		  S <= "101";
-		  wait for 5ns;	-- SHOULD SEE -1x
-		  S <= "110";
-		  wait for 5ns;	-- SHOULD SEE -1x
-		  S <= "111";
-		  wait for 5ns;	-- SHOULD SEE  0x 
+		  clk <= '0';
+		  start <= '1';
+		  reset <= '0';
+		  regD <= '0'; -- Done
+		  wait for 10ns;
+		  clk <= '1';
+		  wait for 10 ns;
+		  start <= '0';
+		  clk <= '0';
+		  wait for 10 ns;
+		  clk <= '1';
+		  wait for 10 ns;
+		  clk <= '0';
+		  wait for 10 ns;
 WAIT;                                                        
 END PROCESS always;                                          
-END MUX_arch;
+END FSM_arch;

@@ -8,16 +8,16 @@ USE ieee.std_logic_unsigned.all;
 
 ENTITY smallMUX IS
     GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
-    PORT( input			: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0); -- Input from ADDER
-			 loadreg			: IN STD_LOGIC;							 -- [ OUR SELECT LINE ]
+    PORT( input			: IN STD_LOGIC_VECTOR(b DOWNTO 0); -- Input from ADDER
+			 loadreg			: IN STD_LOGIC;						-- [ OUR SELECT LINE ]
 			 
 			 --S		: IN  STD_LOGIC_VECTOR(2 DOWNTO 0); 	-- Select
-			 m		: OUT STD_LOGIC_VECTOR(b-1 DOWNTO 0)	-- Output
+			 m		: OUT STD_LOGIC_VECTOR(b DOWNTO 0)	-- Output
 			);
 end smallMUX;
 
 ARCHITECTURE main OF smallMUX IS
-	SIGNAL zeroX : STD_LOGIC_VECTOR(b-1 DOWNTO 0) := (others => '0'); -- Generate a (b-1 DOWNTO 0) of 0's for 0x
+	SIGNAL zeroX : STD_LOGIC_VECTOR(b DOWNTO 0) := (others => '0'); -- Generate a (b DOWNTO 0) of 0's for 0x
 
 	BEGIN
 		WITH loadreg SELECT

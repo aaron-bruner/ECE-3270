@@ -32,13 +32,13 @@ ARCHITECTURE mixed OF REGC IS
 		BEGIN
 		 IF(RISING_EDGE(clk)) THEN
 			  IF(loadreg = '1') THEN
-					REGCout_signal <= REGCd; -- Output input
+					REGCout_signal <= REGCd(b DOWNTO 0); -- Output input
 			  ELSIF shiftreg = '1' THEN
 					REGCout_signal <= REGCout_signal(b) & REGCout_signal(b) & REGCout_signal(b DOWNTO 2);
 					-- The line above shifts the entire signal over two bits but remembering to sign extend with whatever the MSB is
 					-- EX. REGCout_signal = "11001100" | AFTER SHIFT REGCout_signal = "11110011"
 			  ELSIF add = '1' THEN
-					REGCout_signal <= REGCd;					-- ADD
+					REGCout_signal <= REGCd(b DOWNTO 0);	-- ADD
 					toREGB			<= REGCd(1 DOWNTO 0);	-- SHIFT		  
 			 END IF;
 		 END IF;

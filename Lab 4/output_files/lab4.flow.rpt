@@ -1,5 +1,5 @@
 Flow report for lab4
-Sun May 01 14:54:07 2022
+Sun May 01 18:46:09 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun May 01 14:54:07 2022       ;
+; Flow Status                        ; Successful - Sun May 01 18:46:09 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; lab4                                        ;
-; Top-level Entity Name              ; ADD                                         ;
+; Top-level Entity Name              ; HEAD                                        ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C6GES                            ;
 ; Timing Models                      ; Preliminary                                 ;
-; Total logic elements               ; 8                                           ;
-;     Total combinational functions  ; 8                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 24                                          ;
+; Total logic elements               ; 157                                         ;
+;     Total combinational functions  ; 156                                         ;
+;     Dedicated logic registers      ; 58                                          ;
+; Total registers                    ; 58                                          ;
+; Total pins                         ; 37                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/01/2022 14:54:00 ;
+; Start date & time ; 05/01/2022 18:46:01 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab4                ;
 +-------------------+---------------------+
@@ -78,34 +78,40 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 84440844896357.165143124006312         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 84440844896357.165144516112352         ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; REGC_vhd_tst                      ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ADD_vhd_tst                       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; REGB_vhd_tst                      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; FSM_vhd_tst                       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; MUX_vhd_tst                       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; REGD_vhd_tst                      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; HEAD_vhd_tst                      ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; REGA_vhd_tst                      ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; smallMUX_vhd_tst                  ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_symbol           ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; REGD_vhd_tst                           ; --            ; --          ; eda_simulation                    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; HEAD_vhd_tst                           ; --            ; --          ; eda_simulation                    ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --            ; --          ; eda_simulation                    ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                 ; <None>        ; --          ; --                                ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/REGC.vht           ; --            ; --          ; REGC_vhd_tst                      ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/ADD.vht            ; --            ; --          ; ADD_vhd_tst                       ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/REGB.vht           ; --            ; --          ; REGB_vhd_tst                      ;
+; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/FSM.vht            ; --            ; --          ; FSM_vhd_tst                       ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/MUX.vht            ; --            ; --          ; MUX_vhd_tst                       ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/REGD.vht           ; --            ; --          ; REGD_vhd_tst                      ;
+; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/HEAD.vht           ; --            ; --          ; HEAD_vhd_tst                      ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/REGA.vht           ; --            ; --          ; REGA_vhd_tst                      ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/smallMUX.vht       ; --            ; --          ; smallMUX_vhd_tst                  ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; REGC_vhd_tst                           ; --            ; --          ; REGC_vhd_tst                      ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; ADD_vhd_tst                            ; --            ; --          ; ADD_vhd_tst                       ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; REGB_vhd_tst                           ; --            ; --          ; REGB_vhd_tst                      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; FSM_vhd_tst                            ; --            ; --          ; FSM_vhd_tst                       ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; MUX_vhd_tst                            ; --            ; --          ; MUX_vhd_tst                       ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; REGD_vhd_tst                           ; --            ; --          ; REGD_vhd_tst                      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; HEAD_vhd_tst                           ; --            ; --          ; HEAD_vhd_tst                      ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; REGA_vhd_tst                           ; --            ; --          ; REGA_vhd_tst                      ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; smallMUX_vhd_tst                       ; --            ; --          ; smallMUX_vhd_tst                  ;
 ; EDA_TEST_BENCH_NAME                  ; REGA_vhd_tst                           ; --            ; --          ; eda_simulation                    ;
@@ -115,16 +121,18 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TEST_BENCH_NAME                  ; MUX_vhd_tst                            ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; smallMUX_vhd_tst                       ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; REGD_vhd_tst                           ; --            ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; HEAD_vhd_tst                           ; --            ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; FSM_vhd_tst                            ; --            ; --          ; eda_simulation                    ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                                ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; ADD         ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; ADD         ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; ADD         ; Top                               ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; HEAD        ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; HEAD        ; Top                               ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; HEAD        ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                     ; ADD                                    ; lab4          ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                     ; HEAD                                   ; lab4          ; --          ; --                                ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -133,8 +141,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4786 MB             ; 00:00:18                           ;
-; Total                ; 00:00:07     ; --                      ; --                  ; 00:00:18                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4787 MB             ; 00:00:18                           ;
+; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:18                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

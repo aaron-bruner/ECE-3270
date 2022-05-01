@@ -16,7 +16,7 @@ ARCHITECTURE mixed OF FSM IS
 	 SIGNAL state:fsm_state;
 BEGIN
 	PROCESS (clk, reset) BEGIN -- Process to handle our state transition
-		IF reset = '0' THEN
+		IF reset = '1' THEN
 			state <= waitState;
 		ELSE
 			IF RISING_EDGE(clk) THEN
@@ -70,10 +70,9 @@ BEGIN
 			WHEN shiftState =>
 				busy 		<= '1';
 				loadreg 	<= '0';
-				shiftreg <= '0';
+				shiftreg <= '1';
 				addreg 	<= '0';
-				count 	<= '0';
-				done 		<= '1';
+				count 	<= '1';
 			WHEN doneState =>
 				busy 		<= '1';
 				loadreg 	<= '0';

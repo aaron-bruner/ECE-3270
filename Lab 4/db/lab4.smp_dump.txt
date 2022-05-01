@@ -1,5 +1,5 @@
 
-State Machine - |FSM|state
+State Machine - |HEAD|FSM:MealyFSM|state
 Name state.doneState state.shiftState state.addState state.loadState state.waitState 
 state.waitState 0 0 0 0 0 
 state.loadState 0 0 0 1 1 

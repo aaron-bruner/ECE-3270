@@ -4,99 +4,151 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "S[0]",
+					"name" : "busy",
 					"strict" : false
 				},
 				{
-					"name" : "S[1]",
+					"name" : "done",
 					"strict" : false
 				},
 				{
-					"name" : "S[2]",
+					"name" : "finalResult[0]",
 					"strict" : false
 				},
 				{
-					"name" : "S[3]",
+					"name" : "finalResult[1]",
 					"strict" : false
 				},
 				{
-					"name" : "S[4]",
+					"name" : "finalResult[2]",
 					"strict" : false
 				},
 				{
-					"name" : "S[5]",
+					"name" : "finalResult[3]",
 					"strict" : false
 				},
 				{
-					"name" : "S[6]",
+					"name" : "finalResult[4]",
 					"strict" : false
 				},
 				{
-					"name" : "S[7]",
+					"name" : "finalResult[5]",
 					"strict" : false
 				},
 				{
-					"name" : "B[0]",
+					"name" : "finalResult[6]",
 					"strict" : false
 				},
 				{
-					"name" : "A[0]",
+					"name" : "finalResult[7]",
 					"strict" : false
 				},
 				{
-					"name" : "B[1]",
+					"name" : "finalResult[8]",
 					"strict" : false
 				},
 				{
-					"name" : "A[1]",
+					"name" : "finalResult[9]",
 					"strict" : false
 				},
 				{
-					"name" : "B[2]",
+					"name" : "finalResult[10]",
 					"strict" : false
 				},
 				{
-					"name" : "A[2]",
+					"name" : "finalResult[11]",
 					"strict" : false
 				},
 				{
-					"name" : "B[3]",
+					"name" : "finalResult[12]",
 					"strict" : false
 				},
 				{
-					"name" : "A[3]",
+					"name" : "finalResult[13]",
 					"strict" : false
 				},
 				{
-					"name" : "B[4]",
+					"name" : "finalResult[14]",
 					"strict" : false
 				},
 				{
-					"name" : "A[4]",
+					"name" : "finalResult[15]",
 					"strict" : false
 				},
 				{
-					"name" : "B[5]",
+					"name" : "start",
 					"strict" : false
 				},
 				{
-					"name" : "A[5]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
-					"name" : "B[6]",
+					"name" : "reset",
 					"strict" : false
 				},
 				{
-					"name" : "A[6]",
+					"name" : "MULTIPLIER[0]",
 					"strict" : false
 				},
 				{
-					"name" : "B[7]",
+					"name" : "MULTIPLIER[1]",
 					"strict" : false
 				},
 				{
-					"name" : "A[7]",
+					"name" : "MULTIPLIER[2]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLIER[3]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLIER[4]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLIER[5]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLIER[6]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLIER[7]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[2]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[3]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[4]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[5]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[6]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICAND[7]",
 					"strict" : false
 				}
 			]

@@ -17,9 +17,14 @@ end HEAD;
 
 ARCHITECTURE mixed OF HEAD IS
 	--SIGNAL zeroX : STD_LOGIC_VECTOR(b-1 DOWNTO 0) := (others => '0'); -- Generate a (b-1 DOWNTO 0) of 0's for 0x
-
+	SIGNAL Sloadreg, Sdone, Sshiftreg, Saddreg, Scount : STD_LOGIC;
+	SIGNAL SoneX, StwoX, SnegOneX, SnegTwoX, SREGCout, Sm, Smm, SS : STD_LOGIC_VECTOR(b DOWNTO 0);
+	SIGNAL SfinalproductB, SfinalProductC : STD_LOGIC_VECTOR(b-1 DOWNTO 0);
+	SIGNAL SrecodeOperation : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL SREGC : STD_LOGIC_VECTOR(1 DOWNTO 0);
 	
 COMPONENT REGA
+    GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
     PORT( clk				: IN STD_LOGIC;
 			 loadreg 		: IN STD_LOGIC; -- Signal to check if we need to fill the register with all 0's
 			 multiplicand 	: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0); -- Multiplicand provided from input
@@ -31,6 +36,7 @@ COMPONENT REGA
 END COMPONENT;
 	
 COMPONENT REGB
+    GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
     PORT( clk              : IN  STD_LOGIC;
 			 multiplier       : IN  STD_LOGIC_VECTOR(b-1 DOWNTO 0);
 			 loadreg,shiftreg : IN  STD_LOGIC;
@@ -41,6 +47,7 @@ COMPONENT REGB
 END COMPONENT;
 
 COMPONENT REGC
+    GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
     PORT( clk,loadreg,shiftreg,add : IN  STD_LOGIC;
 			 REGCd 					 	  : IN  STD_LOGIC_VECTOR(b DOWNTO 0);	-- The partial product of our additions
 
@@ -50,46 +57,46 @@ COMPONENT REGC
 END COMPONENT;
 
 COMPONENT REGD
+    GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
     PORT( clk,loadreg,count : IN  STD_LOGIC;
 			 done					 : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT FSM
-
 	 PORT( clk,start,reset,regD : IN  STD_LOGIC;
 	 		 busy,loadreg,shiftreg,addreg,count,done : OUT STD_LOGIC);
 END COMPONENT;
 	
 COMPONENT ADD
-	 PORT (A, B	: IN  STD_LOGIC_VECTOR(x-1 DOWNTO 0);
+    GENERIC (x : INTEGER := 8); -- Constant integer so we can change data-width with ease
+	 PORT (A, B	: IN  STD_LOGIC_VECTOR(x DOWNTO 0);
 	       --Cin	: IN  STD_LOGIC; -- Always 0
 			 --Cout	: OUT STD_LOGIC; -- We don't care about overflow
-			 S		: OUT STD_LOGIC_VECTOR(x-1 DOWNTO 0)
+			 S		: OUT STD_LOGIC_VECTOR(x DOWNTO 0)
 	 );
 END COMPONENT;	
 
 COMPONENT MUX
-    PORT( oneX				: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
-			 twoX				: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
-			 negOneX			: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
-			 negTwoX			: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
+    GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
+    PORT( oneX				: IN STD_LOGIC_VECTOR(b DOWNTO 0);
+			 twoX				: IN STD_LOGIC_VECTOR(b DOWNTO 0);
+			 negOneX			: IN STD_LOGIC_VECTOR(b DOWNTO 0);
+			 negTwoX			: IN STD_LOGIC_VECTOR(b DOWNTO 0);
 			 
 			 S		: IN  STD_LOGIC_VECTOR(2 DOWNTO 0); 	-- Select
-			 m		: OUT STD_LOGIC_VECTOR(b-1 DOWNTO 0)	-- Output
+			 m		: OUT STD_LOGIC_VECTOR(b DOWNTO 0)	-- Output
 			);
 end COMPONENT;
 
 COMPONENT smallMUX
-    PORT( input			: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0); -- Input from ADDER
+    GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
+    PORT( input			: IN STD_LOGIC_VECTOR(b DOWNTO 0); -- Input from ADDER
 			 loadreg			: IN STD_LOGIC;							 -- [ OUR SELECT LINE ]
 			 
 			 --S		: IN  STD_LOGIC_VECTOR(2 DOWNTO 0); 	-- Select
-			 m		: OUT STD_LOGIC_VECTOR(b-1 DOWNTO 0)	-- Output
+			 m		: OUT STD_LOGIC_VECTOR(b DOWNTO 0)	-- Output
 			);
 end COMPONENT;
-	
-SIGNAL Sloadreg : STD_LOGIC;
-SIGNAL SoneX, StwoX, SnegOneX, SnegTwoX : STD_LOGIC_VECTOR(b DOWNTO 0);
 	
 	
 	BEGIN
@@ -109,24 +116,71 @@ SIGNAL SoneX, StwoX, SnegOneX, SnegTwoX : STD_LOGIC_VECTOR(b DOWNTO 0);
 			GENERIC MAP(b)
 			PORT MAP(clk,			-- Input clock
 						Sloadreg,	-- FSM Output
-						count,		-- 
-						done			-- 
+						Scount,		-- Output from FSM [ Only 1 when in shiftState | 1=Continue ADD/Shift ]
+						Sdone			-- Output -> Input to FSM
 			);
 		
+		MealyFSM : FSM -- Changes state depending on current state & input
+			PORT MAP(clk,		 -- Input Clock
+						start,	 -- Input Start
+						reset,	 -- Input Reset
+						Sdone,	 -- Input from REGD (regD)
+						busy,		 -- Output busy 
+						Sloadreg, -- Output 1/0 [REGD,REGA,REGB,MUX]
+						Sshiftreg,-- Output 1/0 [REGB,REGC]
+						Saddreg,	 -- Output 1/0 [REGC]
+						Scount,	 -- Output 1/0 for REGD counter
+						done		 -- Output : Finished Bit-Pair
+			);
+			
+		registerB : REGB
+			GENERIC MAP(b)
+			PORT MAP(clk,					-- Input Clock
+						MULTIPLIER,			-- Input MULTIPLIER
+						Sloadreg,			-- FSM Output
+						Sshiftreg,			-- FSM Output
+						SREGC,				-- Two LSB from REGC for two MSB in B
+						SfinalproductB,		-- Final result ready value
+						SrecodeOperation	-- 3 LSB bits of REGB (Bit-Pair Recode value)
+			);
+			
+		registerC : REGC
+			GENERIC MAP(b)
+			PORT MAP(clk,				-- Input Clock
+						Sloadreg,		-- Output from FSM
+						Sshiftreg,		-- Output from FSM
+						Saddreg,			-- Output from FSM [add]
+						Smm,				-- Input from smallMUX [REGCd]
+						SREGCout,		-- Output going to ADDER
+						SREGC,			-- Two LSB sent to REGB [REGB]
+						SfinalProductC	-- Final result ready value
+			);
+			
+		miniMUX : smallMUX
+			GENERIC MAP(b)
+			PORT MAP(SS,	 	 -- Result from ADD [input]
+						Sloadreg, -- FSM Output
+						Smm		 -- Input to REGC [m]
+			);
 		
+		Adder : ADD
+			GENERIC MAP(x)
+			PORT MAP(SREGCout,	-- REGC Output  [A]
+						Sm,			-- MUX Output   [B]
+						SS				-- Adder result [S]
+			);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		multiplexer : MUX
+			GENERIC MAP(b)
+			PORT MAP(SoneX,				-- ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+						StwoX,				-- |   Input from		|
+						SnegOneX,			-- |	    REGA			|
+						SnegTwoX,			-- ___________________
+						SrecodeOperation,	-- MUX Select Line [S]
+						Sm						-- Output of either 1x, 2x, -1x or -2x
+			);
+			
+-- FINAL RESULT!!!
+finalResult <= SfinalProductC(b-1 DOWNTO 0) & SfinalProductB(b-1 DOWNTO 0);
+			
 END mixed;

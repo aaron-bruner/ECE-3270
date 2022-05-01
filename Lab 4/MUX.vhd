@@ -8,18 +8,18 @@ USE ieee.std_logic_unsigned.all;
 
 ENTITY MUX IS
     GENERIC (b : INTEGER := 8); -- Constant integer so we can change data-width with ease
-    PORT( oneX				: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
-			 twoX				: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
-			 negOneX			: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
-			 negTwoX			: IN STD_LOGIC_VECTOR(b-1 DOWNTO 0);
+    PORT( oneX				: IN STD_LOGIC_VECTOR(b DOWNTO 0);
+			 twoX				: IN STD_LOGIC_VECTOR(b DOWNTO 0);
+			 negOneX			: IN STD_LOGIC_VECTOR(b DOWNTO 0);
+			 negTwoX			: IN STD_LOGIC_VECTOR(b DOWNTO 0);
 			 
 			 S		: IN  STD_LOGIC_VECTOR(2 DOWNTO 0); 	-- Select
-			 m		: OUT STD_LOGIC_VECTOR(b-1 DOWNTO 0)	-- Output
+			 m		: OUT STD_LOGIC_VECTOR(b DOWNTO 0)	-- Output
 			);
 end MUX;
 
 ARCHITECTURE main OF MUX IS
-	SIGNAL zeroX : STD_LOGIC_VECTOR(b-1 DOWNTO 0) := (others => '0'); -- Generate a (b-1 DOWNTO 0) of 0's for 0x
+	SIGNAL zeroX : STD_LOGIC_VECTOR(b DOWNTO 0) := (others => '0'); -- Generate a (b-1 DOWNTO 0) of 0's for 0x
 
 	BEGIN
 		WITH S SELECT

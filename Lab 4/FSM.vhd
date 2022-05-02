@@ -23,21 +23,21 @@ BEGIN
 				CASE state IS
 					WHEN waitState =>
 						IF start = '1' THEN
-							state <= loadState;
+							state <= loadState;		-- Ready to multiply? Move to load
 						ELSE
 							state <= waitState;
 						END IF;
-					WHEN loadState =>
+					WHEN loadState =>					-- After load we add
 						state <= addState;
 					WHEN addState => 
-						state <= shiftState;
+						state <= shiftState;			-- After shift we go back to add UNLESS we're done
 					WHEN shiftState =>
 						IF regD = '1' THEN
 							state <= doneState;
 						ELSE
 							state <= addState;
 						END IF;
-					WHEN doneState =>
+					WHEN doneState =>					-- Once we're done we go back to waiting
 						state <= waitState;
 				END CASE;
 			END IF;
@@ -47,12 +47,12 @@ BEGIN
 	PROCESS (state) BEGIN
 		CASE state IS
 			WHEN waitState =>
-				busy 		<= '0';
-				loadreg 	<= '0';
-				shiftreg <= '0';
-				addreg 	<= '0';
-				count 	<= '0';
-				done 		<= '0';
+				busy 		<= '0'; -- Performing multiplication - Only reset can break
+				loadreg 	<= '0'; -- Load all registers
+				shiftreg <= '0'; -- Shift REGC & REGB
+				addreg 	<= '0'; -- Add MUX out & REGC
+				count 	<= '0'; -- Add/Shift -> Count ... Add/Shift -> Count ... 
+				done 		<= '0'; -- We're only done if we're at last A/S operation and regD = 1
 			WHEN loadState =>
 				busy 		<= '1';
 				loadreg 	<= '1';

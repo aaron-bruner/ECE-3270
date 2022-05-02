@@ -18,7 +18,7 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "05/01/2022 11:56:01"
+-- Generated on "05/01/2022 20:26:23"
                                                             
 -- Vhdl Test Bench template for design  :  ADD
 -- 
@@ -33,14 +33,14 @@ END ADD_vhd_tst;
 ARCHITECTURE ADD_arch OF ADD_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL A : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL B : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL S : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL A : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL B : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL S : STD_LOGIC_VECTOR(8 DOWNTO 0);
 COMPONENT ADD
 	PORT (
-	A : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	B : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	S : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	A : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+	B : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+	S : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
@@ -63,15 +63,14 @@ always : PROCESS
 -- variable declarations                                      
 BEGIN                                                         
         -- code executes for every event on sensitivity list  
-		  A <= "01100111";
-		  B <= "00010001";
-		  wait for 10ns;
-		  -- We should see s = 0111 1000
-		  A <= "11000000";
-		  B <= "01000000";
-		  wait for 10ns;
-		  -- We should see s = 0000 0000
-		  
+		  A <= "001100111";
+		  B <= "000010001";
+		  wait for 10 ns;
+		  -- We should see s = 0 0111 1000
+		  A <= "110000000";
+		  B <= "010000000";
+		  wait for 10 ns;
+		  -- We should see s = 0 0000 0000
 WAIT;                                                        
 END PROCESS always;                                          
 END ADD_arch;

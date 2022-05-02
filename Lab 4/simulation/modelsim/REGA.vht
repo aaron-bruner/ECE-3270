@@ -18,9 +18,9 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "04/29/2022 13:40:53"
+-- Generated on "05/01/2022 20:10:01"
                                                             
--- Vhdl Test Bench template for design  :  REG1
+-- Vhdl Test Bench template for design  :  REGA
 -- 
 -- Simulation tool : ModelSim-Altera (VHDL)
 -- 
@@ -45,10 +45,10 @@ COMPONENT REGA
 	clk : IN STD_LOGIC;
 	loadreg : IN STD_LOGIC;
 	multiplicand : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	negOneX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	negTwoX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	oneX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	twoX : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
+	negOneX : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+	negTwoX : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+	oneX : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+	twoX : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN

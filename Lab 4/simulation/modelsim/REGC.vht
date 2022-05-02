@@ -18,7 +18,7 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "05/01/2022 08:55:22"
+-- Generated on "05/01/2022 20:15:25"
                                                             
 -- Vhdl Test Bench template for design  :  REGC
 -- 

@@ -91,12 +91,28 @@ BEGIN
 		  wait for 10ns;
 		  clk <= '1';
 		  wait for 10 ns;
-		  start <= '0';
+		  start <= '0'; -- Busy
 		  clk <= '0';
 		  wait for 10 ns;
 		  clk <= '1';
 		  wait for 10 ns;
 		  clk <= '0';
+		  wait for 10 ns;
+		  clk <= '1';
+		  wait for 10 ns;
+		  clk <= '0';
+		  regD <= '1'; -- Get busy to go low
+		  wait for 10 ns;
+		  clk <= '1';
+		  wait for 10 ns;
+		  clk <= '0';
+		  wait for 10 ns;
+		  clk <= '1';
+		  wait for 10 ns;
+		  clk <= '0';
+		  regD <= '0'; -- Get busy to go low
+		  wait for 10 ns;
+		  clk <= '1';
 		  wait for 10 ns;
 WAIT;                                                        
 END PROCESS always;                                          

@@ -38,7 +38,7 @@ ARCHITECTURE mixed OF REGB IS
 		 IF(RISING_EDGE(clk)) THEN
 			  IF(loadreg = '1') THEN
 					REGBdata(b DOWNTO 1) <= multiplier;		-- 8 MSB of REGB = multiplier
-					REGBdata(0) <= '0';							-- Dummy Bit always 0
+					REGBdata(0) <= '0';							-- Dummy Bit always first 0
 			  ELSIF shiftreg = '1' THEN
 					  REGBdata(b DOWNTO 0) <= REGC(1 DOWNTO 0) & REGBdata(b DOWNTO 2); -- REGB = (CCBBBBBBD)
 					  -- We have 9 total bits avalible. The two MSB are the two LSB of C, the next six bits are the previous 6 MSB (Right shift by two), then the last bit is

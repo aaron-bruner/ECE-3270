@@ -18,7 +18,7 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "05/01/2022 13:13:54"
+-- Generated on "05/01/2022 20:34:14"
                                                             
 -- Vhdl Test Bench template for design  :  smallMUX
 -- 
@@ -33,14 +33,14 @@ END smallMUX_vhd_tst;
 ARCHITECTURE smallMUX_arch OF smallMUX_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL input : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL input : STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL loadreg : STD_LOGIC;
-SIGNAL m : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL m : STD_LOGIC_VECTOR(8 DOWNTO 0);
 COMPONENT smallMUX
 	PORT (
-	input : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	input : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
 	loadreg : IN STD_LOGIC;
-	m : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	m : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN

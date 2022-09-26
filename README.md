@@ -26,3 +26,8 @@ The purpose of this lab is to implement a state machine that keeps track of the 
 
 ###### Lab 3
 The purpose of this lab is to design a simple processor. This includes things such as registers and operations on these registers. In addition, this lab will include many parts from previous labs such as our Multiplexer and FSM from lab 2.
+
+###### Lab 4
+The purpose of this lab is to implement a Bit-pair Recoded fixed point multiplier in VHDL. The top
+level entity should be a structural design, and all lower level components should be kept completely **modular** and
+**generic**.
